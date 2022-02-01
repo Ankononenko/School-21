@@ -1,5 +1,6 @@
 sed command - https://habr.com/ru/company/ruvds/blog/327530/ 
 sed empty space and "" https://question-it.com/questions/4768497/redaktirovanie-na-meste-s-pomoschju-sed-v-os-x
+get full destination of a file - echo `pwd`/`ls files.log`
 
 # Assign the filename
 read -p "Enter the path of the file or filename: " filename
@@ -16,3 +17,40 @@ if [[ $search != "" && $replace != "" ]]; then
 sed -i "" "s/$search/$replace/" $filename
 fi
 
+# Assign the filename
+read -p "Enter the path of the file or filename: " filename
+# A while loop which doesn't let thru an invalid filename
+while [ ! -f "$filename" ]
+  do
+    echo "Enter a valid filename or filepath"
+	read -p "Enter the path of the file or filename: " filename	
+  done;
+# Filename for testing
+# filename="/Users/finchren/Downloads/T02D02-0/src/Test.txt"
+
+# Take the search string
+read -p "Enter the search string: " search
+read -p "Enter the replace string: " replace
+# A while loop to make sure that user enters a string to replace 
+while [ -z "$search" ] || [ -z "$replace" ]
+  do
+    echo "Search or replace cannot be empty"
+	read -p "Enter the search or replace string: " search
+	read -p "Enter the replace string: " replace	
+  done;
+# Take the replace string
+#read -p "Enter the replace string: " replace
+# "-i" flag is used so sed can backup and modify input file directly
+# Here we also have conditions so sed wouldn't run if strings are empty 
+if [[ $search != "" && $replace != "" ]]; then
+	sed -i "" "s/$search/$replace/" $filename
+fi
+
+# Variables to use later in the string formating 
+filepath=$(find `pwd` -name $filename)
+filesize=$(stat -f%z $filename)
+shasum=$(shasum -a 256 $filename | cut -d " " -f 1)
+dateTime=$(stat -f "%Sm" -t"%Y-%m-%d %H:%M" $filename)
+
+# Append logfile with size, date time and SHA-sum
+echo "$filepath - $filesize - $shasum - $dateTime - sha256"  >> files.log
