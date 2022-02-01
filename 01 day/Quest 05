@@ -1,0 +1,6 @@
+1. cd door_managment_files
+2. cd door_configuration
+3. ls
+4. cat door_1.conf
+5. nano door_1.conf
+6. Here we change "CLOSED" to "OPEN" in nano
