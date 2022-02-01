@@ -1,0 +1,7 @@
+mkdir door_configuration  
+mkdir door_map          
+mkdir door_logs
+mv *.conf door_configuration
+mv *.conf door_configuration
+mv *.log door_logs
+sh ai_door_managment_module.sh
