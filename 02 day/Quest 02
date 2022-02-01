@@ -1,0 +1,18 @@
+sed command - https://habr.com/ru/company/ruvds/blog/327530/ 
+sed empty space and "" https://question-it.com/questions/4768497/redaktirovanie-na-meste-s-pomoschju-sed-v-os-x
+
+# Assign the filename
+read -p "Enter the path of the file or filename: " filename
+# Filename for testing
+# filename="/Users/finchren/Downloads/T02D02-0/src/Test.txt"
+
+# Take the search string
+read -p "Enter the search string: " search
+
+# Take the replace string
+read -p "Enter the replace string: " replace
+
+if [[ $search != "" && $replace != "" ]]; then
+sed -i "" "s/$search/$replace/" $filename
+fi
+
