@@ -1,0 +1,2 @@
+stat -f%z history_of_vi.txt
+shasum -a 256 history_of_vim.txt
