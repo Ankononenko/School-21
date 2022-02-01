@@ -1,9 +1,0 @@
-sh keygen.sh
-cd key
-ls
-rm file*
-ls
-cd ..
-sh unifier.sh
-ls 
-rm -rf key 
