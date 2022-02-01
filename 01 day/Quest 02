@@ -1,0 +1,7 @@
+chmod +x
+nano important_data_for_ai_module_2.txt 
+"1 2 3 4 5"
+sh ai_initial_module.sh 
+git add .    
+git commit -m'Finally the second quest is done'
+git push origin develop
