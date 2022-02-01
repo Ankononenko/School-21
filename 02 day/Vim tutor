@@ -1,0 +1,35 @@
+1. Press the <ESC> key (to make sure you are in Normal mode).
+
+2. Type:      :q! <ENTER>.
+     This exits the editor, DISCARDING any changes you have made.
+     
+x key to delete 
+
+h - left 
+j - down
+k - up
+l - left 
+
+i - insert text at the cursor
+
+shift + a - append text at the end of the line
+
+:wq - save file and exit 
+
+vim nameOfTheFile - is the command to start vim editor, nameOfTheFile is the name of the file you wish to edit
+
+dw - delete a word 
+d$ - delete to the end of the line 
+de - delete to the end of the current word 
+dNw - where N is the number of words that you want to delete
+dd - delete a whole line
+Ndd - where N is a number. Deletes multiple lines
+
+w - move cursor one word to the right. Typing a number before a motion repeats it N times. 2w - move two words. 
+0 - move cursor to the begging of the line
+
+u - undo the last command
+
+p - paste previously deleted line 
+
+rN - replace, N is the character we want to replace with 
