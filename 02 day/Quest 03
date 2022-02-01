@@ -1,0 +1,4 @@
+numberOfRecords=$(grep -c ".*" $1)
+numberOfUniqueFiles=$(awk 'a[$1] == "" { a[$1]="X" } END { print length(a) }' $1)
+numberOfChangesHash=$(cat $1 | cut -f 8 | sort | uniq | wc -l)
+echo "$numberOfRecords $numberOfUniqueFiles $numberOfChangesHash"
