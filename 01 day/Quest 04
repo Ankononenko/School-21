@@ -1,3 +1,10 @@
 Open second Terminal window to kill the process - Command + N
 ps -ef | grep ai_door_control.sh
 kill -9 46992 (where 46992 is ID of our process)
+
+
+touch quest4.sh
+ps
+ps aux | grep ai_door_control.sh
+kill 18043
+nano quest4.sh
