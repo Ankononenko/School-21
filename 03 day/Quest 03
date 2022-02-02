@@ -2,7 +2,7 @@ https://www.tutorialspoint.com/cprogramming/c_input_output.htm
 https://www.programiz.com/c-programming/examples/add-numbers
 
 
-#include <stdio.h> 
+// Copyright 2022 finchren
 #include <stdio.h> 
 int main(){
 	int first, second, sum, diff, product, quotient;
