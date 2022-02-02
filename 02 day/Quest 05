@@ -1,0 +1,76 @@
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+# Markdown manual
+
+## How to create a personal repository with the correct .gitignore and simple README.MD:
+_Because of their larger potential in GitLab, repositories are called projects. But you can use the words interchangeably because a project behaves the same way as a repository you might find on GitHub._
+------
+1. Go to your Projects page and click _New project_.
+------
+![alt text](https://raw.githubusercontent.com/163114/School-21/main/Screenshots/Screenshot.png "Click New project")
+------
+2. From the Blank project tab, give the project a name and add a description. If you want it to be a public repository, click the Public option. Make sure the Initialize repository with README option is checked since our task is to create a README.MD too. Then click the Create project button.
+------
+![alt text](https://raw.githubusercontent.com/163114/School-21/main/Screenshots/Screenshot01.png "Create New project")
+------
+3. When the project is created you should click the "+" sign next to the branch name and choose the "_New file_" option. 
+------
+![alt text](https://raw.githubusercontent.com/163114/School-21/main/Screenshots/Screenshot07.png "Choose New file")
+------
+4. When creating a new file, choose the _.gitignore option_ for the template, choose your programming language for the appropriate settings to take place and enter the name for our file. 
+------
+![alt text](https://raw.githubusercontent.com/163114/School-21/main/Screenshots/Screenshot09.png ".gitignore")
+------
+5. Commit the changes. 
+------
+## How to create develop and master branches:
+------
+1. Login to your GitLab account and go to your project under Projects section.
+------
+![alt text](https://raw.githubusercontent.com/163114/School-21/main/Screenshots/Screenshot04.png "Projects section")
+------
+2. To create a branch, click on the Branches option under the Repository section and click on the New branch button.
+------
+![alt text](https://raw.githubusercontent.com/163114/School-21/main/Screenshots/Screenshot05.png "New branch")
+------
+3. In the New branch screen, enter the name for branch and click on the Create branch button.
+4. After creating branch, you will get a below screen along with the created branch.
+------
+## To update the default branch name for an individual project:
+1. Sign in to GitLab with at least the Maintainer role.
+2. In the left navigation menu, go to _Settings > Repository_.
+![alt text](https://raw.githubusercontent.com/163114/School-21/main/Screenshots/Screenshot10.png "go to _Settings > Repository_")
+3. Expand Default branch, and select a new default branch.
+![alt text](https://raw.githubusercontent.com/163114/School-21/main/Screenshots/Screenshot11.png "Expand Default branch")
+4. Select _Save changes_.
+![alt text](https://raw.githubusercontent.com/163114/School-21/main/Screenshots/Screenshot12.png "_Save changes_")
+------
+## Create an issue for creating the current manual:
+------
+1. On the top bar, select Menu > Projects and find your project.
+------
+![alt text](https://raw.githubusercontent.com/163114/School-21/main/Screenshots/Screenshot13.png "Menu > Projects")
+------
+2. On the left sidebar, select Issues, and then, in the top right corner, select New issue.
+------
+![alt text](https://raw.githubusercontent.com/163114/School-21/main/Screenshots/Screenshot14.png "New issue")
+------
+3. Complete the fields and create the issue. 
+------
+![alt text](https://raw.githubusercontent.com/163114/School-21/main/Screenshots/Screenshot15.png "Create")
+------
+## How to create a branch for the issue:
+------
+1. Open the issue that we want to create a branch for in the list of issues. 
+------
+![alt text](https://raw.githubusercontent.com/163114/School-21/main/Screenshots/Screenshot16.png "Open issue")
+------
+2. Click "Create merge request" and select "Create branch" option. Enter name and source of the branch.
+------
+![alt text](https://raw.githubusercontent.com/163114/School-21/main/Screenshots/Screenshot17.png "Create branch")
+------
+3. Enter comment and click "Create branch"
+------
+## How to create a merge request on the develop branch:
+------
+1. 
