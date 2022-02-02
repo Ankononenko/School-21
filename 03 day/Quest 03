@@ -1,18 +1,33 @@
 https://www.tutorialspoint.com/cprogramming/c_input_output.htm
-
 https://www.programiz.com/c-programming/examples/add-numbers
 
+
+#include <stdio.h> 
 #include <stdio.h> 
 int main(){
 	int first, second, sum, diff, product, quotient;
-	scanf("%d %d", first, second);
+// Char endline is used to git rid of edge cases where the last number is float
+// In C there is always one char at the end of any line - newline
+// That's why we use "endline==1"
+	char endline;
 	
-	sum = first + second;
-	diff = first - second;
-	product = first * second;
-	quotient = first / second;
-	
-	printf("%d %d %d %d\n", sum, diff, product, quotient);
-
+	if((scanf("%d %d", &first, &second)==2)&&(scanf("%c", &endline)==1)&&endline=='\n'){
+	    
+	    sum = first + second;
+    	diff = first - second;
+    	product = first * second;
+    	quotient = first / second;
+    	
+	    if(second==0){
+	        printf("%d %d %d n/a", sum, diff, product);
+	        return 0;
+	    }
+    	
+	printf("%d %d %d %d", sum, diff, product, quotient);
+	}
+	else{
+	    printf("n/a");
+	    return 0;
+	} 
 	return 0;
 }
