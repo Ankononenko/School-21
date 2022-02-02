@@ -1,0 +1,26 @@
+// Copyright 2022 finchren
+#include <stdio.h> 
+
+	int main(){
+
+	int first, second;
+	char endline;
+	
+	if((scanf("%d %d", &first, &second)==2)&&((scanf("%c", &endline)==1)&&(endline=='\n'))){
+	
+		if(first>second){
+			printf("%d", first);
+			return 0;
+		}
+	
+		else{
+			printf("%d", second);
+			return 0;
+		}
+	}
+	else{
+		printf("n/a");
+		return 0;
+	}
+	return 0;
+}
