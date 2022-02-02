@@ -73,4 +73,74 @@ _Because of their larger potential in GitLab, repositories are called projects. 
 ------
 ## How to create a merge request on the develop branch:
 ------
-1. 
+There are many ways to create a merge request using Gitlab. One of the many is - create a request when you add, edit, or upload a file.
+1. Add, edit, or upload a file to the repository.
+2. In the Commit message, enter a reason for the commit.
+3. Select the Target branch or create a new branch by typing the name (without spaces, capital letters, or special chars).
+5. Select the Start a new merge request with these changes checkbox or toggle. This checkbox or toggle is visible only if the target is not the same as the source branch, or if the source branch is protected.
+6. Select Commit changes.
+------
+Create merge request when you create a branch:
+You can create a merge request when you create a branch.
+1. On the top bar, select Menu > Projects and find your project.
+2. On the left menu, select Repository > Branches.
+3. Type a branch name and select New branch.
+4. Above the file list, on the right side, select Create merge request. A merge request is created. The default branch is the target.
+5. Fill out the fields and select Create merge request.
+------
+## How to comment and accept the request: 
+1. Go to the merge request you want to review, and select the Changes tab.
+2. Select the comment icon in the gutter to expand the diff lines and display a comment box. 
+3. Write your first comment, and select Start a review below your comment. 
+4. Submit the comment. 
+5. Click "Accept Merge Request". 
+------
+## How to create a stable version in the master with a tag.
+1. Go to your repository.
+2. In the menu choose Repository > Tags.
+3. Add a tag for the version of your app. For example, v1.3.1.
+4. Add a message (title) about the release. For example, Release 1.3.1.
+4. Add a note that describes the details of the release. (Not optional. Adding a note to a tag is what makes it a release.)
+5. Click Create tag.
+------
+## How to work with wiki for the project.
+### To access a project wiki:
+1. On the top bar, select Menu > Projects and find your project.
+2. To display the wiki, either:
+  On the left sidebar, select Wiki.
+  On any page in the project, use the g + w wiki keyboard shortcut.
+3. If Wiki is not listed in the left sidebar of your project, a project administrator has disabled it.
+###Create the wiki home page
+When a wiki is created, it is empty. On your first visit, you can create the home page users see when viewing the wiki. This page requires a specific title to be used as your wiki’s home page. To create it:
+1. On the top bar, select Menu.
+2. For project wikis, select Projects and find your project.
+3. For group wikis, select Groups and find your group.
+4. On the left sidebar, select Wiki.
+5. Select Create your first page.
+6. GitLab requires this first page be titled home. The page with this title serves as the front page for your wiki.
+7. Select a Format for styling your text.
+8. Add a welcome message for your home page in the Content section. You can always edit it later.
+9. Add a Commit message. Git requires a commit message, so GitLab creates one if you don’t enter one yourself.
+10. Select Create page.
+###Create a new wiki page
+Users with at least the Developer role can create new wiki pages:
+1. On the top bar, select Menu.
+2. For project wikis, select Projects and find your project.
+3. For group wikis, select Groups and find your group.
+4. On the left sidebar, select Wiki.
+5. Select New page on this page, or any other wiki page.
+6. Select a content format.
+7. Add a title for your new page. Page titles use special characters for subdirectories and formatting, and have length restrictions.
+8. Add content to your wiki page.
+9. Add a Commit message. Git requires a commit message, so GitLab creates one if you don’t enter one yourself.
+10. Select Create page.
+###Delete a wiki page:
+You need at least the Developer role to delete a wiki page.
+1. On the top bar, select Menu.
+2. For project wikis, select Projects and find your project.
+3. For group wikis, select Groups and find your group.
+4. On the left sidebar, select Wiki.
+5. Go to the page you want to delete.
+6. Select the edit icon ().
+7. Select Delete page.
+8. Confirm the deletion.
