@@ -8,3 +8,5 @@ ps
 ps aux | grep ai_door_control.sh
 kill 18043
 nano quest4.sh
+
+pkill -f ai_door_control
