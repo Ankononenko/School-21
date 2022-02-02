@@ -1,0 +1,18 @@
+https://www.tutorialspoint.com/cprogramming/c_input_output.htm
+
+https://www.programiz.com/c-programming/examples/add-numbers
+
+int main()
+{
+	int sum, diff, product, quotient;
+  scanf("%d %d", first, second)
+
+  sum = first + second;
+	diff = first - second;
+	product = first * second;
+	quotient = first / second;
+	
+	printf("%d %d %d %d\n", sum, diff, product, quotient)
+
+	return 0;
+}
