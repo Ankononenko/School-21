@@ -1,0 +1,46 @@
+https://www.programiz.com/c-programming/c-user-defined-functions
+https://en.wikipedia.org/wiki/Division_algorithm
+https://www.programiz.com/c-programming/c-input-output
+https://www.w3schools.in/c-tutorial/loops/while/#:~:text=while%20loop%20is%20a%20most,called%20an%20entry%2Dcontrolled%20loop.
+
+// Code to divide
+// Copyright 2022 finchren
+
+#include <stdio.h> 
+
+// Division by repeated subtraction formula
+/*
+Remainder := Numerator
+while Remainder ≥ Denominator do
+  Remainder := Remainder − Denominator
+end
+return Remainder
+*/
+
+int divide(int first, int second); // Function prototype
+
+int main() {
+    
+    int numerator, denominator, result;
+
+    printf("Please enter numerator and denominator: ");
+    scanf("%d %d", &numerator, &denominator);
+
+    result = divide(numerator, denominator); // Function call
+    printf("Result is %d", result);
+
+    return 0;
+}
+
+int divide(int numerator_f, int denominator_f) { // Function definition
+    
+    int remainder, counter;
+    counter = 0;
+    remainder = numerator_f;
+
+    while (remainder >= denominator_f) {
+         remainder -= denominator_f;
+         counter += 1;
+    }
+    return counter;
+}
