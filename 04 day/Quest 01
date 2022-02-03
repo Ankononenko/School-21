@@ -44,3 +44,36 @@ int divide(int numerator_f, int denominator_f) { // Function definition
     }
     return counter;
 }
+
+
+// Code to find remainder of a number without division
+int divide(int first, int second); // Function prototype for division
+
+int main() {
+    
+    int numerator, denominator, result;
+
+    printf("Please enter a number to find prime divisor of: ");
+    scanf("%d %d", &numerator, &denominator);
+    
+    //while()
+    
+    result = divide(numerator, denominator); // Function call
+    printf("Result is %d", result);
+
+    return 0;
+}
+
+int divide(int numerator_f, int denominator_f) { // Function definition
+    
+    float remainder; 
+    int counter;
+    counter = 0;
+    remainder = numerator_f;
+
+    while (remainder >= denominator_f) {
+         remainder -= denominator_f;
+         //counter += 1;
+    }
+    return remainder;
+}
