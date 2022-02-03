@@ -1,6 +1,7 @@
 https://www.tutorialspoint.com/float-and-double-in-c
 https://www.programiz.com/c-programming/library-function/math.h/exp
 python3 ../materials/linters/cpplint.py nameOfTheFile
+gcc nameOfTheFile -Wall -Werror -Wextra 
 
 // Copyright 2022 finchren
 
