@@ -1,0 +1,22 @@
+// Copyright 2022 finchren
+
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+
+	float x;
+	char endline;
+	float y;
+
+	if((scanf("%f", &x)==1)&&((scanf("%c", &endline)==1)&&(endline=='\n'))){
+		y = 7e-3 * x^4 + ((22.8 * x^⅓ - 1e3) * x + 3) / (x * x / 2) - x * (10 + x)^(2/x) - 1.01
+		printf("%f", y);
+	}
+
+	else{
+		printf("n/a");
+		return 0;
+
+	return 0;
+}
