@@ -1,0 +1,57 @@
+// Copyright 2022 finchren
+
+#include <stdio.h> 
+#include <stdbool.h>
+
+int divide(int first, int second); // Function prototype for division
+
+int main() {
+    
+    int number, result, counter, remainder_while_number, counter_for_remainder, remainder_while_number_final, final_counter_for_real;
+    bool istrue = true;
+    final_counter_for_real = 0;
+
+    printf("Please enter a number to find prime divisor of: ");
+    scanf("%d", &number);
+
+    counter = number - 1;
+    
+    // A while loop to take the number and divide it to see how many numbers without remainder we can find. We should check all the numbers in range of < N && > 1
+    // We start from N-1 and go down. For example 6 - 5%1, 4%2, 3%0.
+    // When we find a largest number that divides N, we should check if it is prime. For that we do the same thing - put it in a loop and start to divide it to see how many numbers are there. 
+    while (counter >= 2) {
+            
+            remainder_while_number = divide(number, counter);
+            
+            if (remainder_while_number == 0) {
+                counter_for_remainder = counter;
+
+                while (istrue == true || counter_for_remainder >= 2) {
+                    
+                    remainder_while_number_final = divide(counter, counter_for_remainder);
+                    if ((counter_for_remainder == 2) && (final_counter_for_real == 0)) {
+                        istrue = false;
+                        result = counter;
+                        printf("Result is %d", result);
+                        break;
+                    }
+                    if (remainder_while_number_final == 0) { 
+                        final_counter_for_real++;
+                    }
+                    counter_for_remainder--;
+                }
+            }
+            counter--;
+    }
+    
+    printf("Result is %d", result);
+
+    return 0;
+}
+
+int divide(int numerator_f, int denominator_f) { // Function definition. Returns remainder from division operation.
+    while (numerator_f >= denominator_f) {
+         numerator_f -= denominator_f;
+    }
+    return numerator_f;
+}
