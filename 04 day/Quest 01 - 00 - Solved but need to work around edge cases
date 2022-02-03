@@ -1,0 +1,38 @@
+// Code to divide
+// Copyright 2022 finchren
+
+#include <stdio.h> 
+int remainder_xy(int x, int y); 
+int main() {
+    int n, c1, r1, c2, r2, w, result;
+    n = 999;
+    c1 = n -1;
+    while(c1 >= 2) {
+        r1 = remainder_xy(n, c1);
+        if(r1==0){
+            c2 = c1 - 1;
+            while(c2 > 0) { 
+                w = 0;   
+                r2 = remainder_xy(c1, c2);
+                if (r2 == 0) {
+                    break;    
+                }
+                if ((c2 < 3) && (w == 0)) {
+                    result = c1;
+                    printf("%d", result);
+                    return result;
+                    break;
+                }
+                c2--;
+            }
+        }
+        c1--;
+    }
+    return 0;
+}
+int remainder_xy(int x, int y) { 
+    while (x >= y) {
+         x -= y;
+    }
+    return x;
+}
