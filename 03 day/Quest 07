@@ -1,0 +1,25 @@
+// Copyright 2022 finchren
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    float x, y;
+    float result_to_check_with = 25.0;
+    char endline;
+
+    if ((scanf("%f %f", &x, &y) == 2)&&((scanf("%c", &endline) == 1)&&(endline == '\n'))) {
+        float sum = pow(x, 2) + pow(y, 2);
+        if (sum < result_to_check_with) {
+            printf("GOTCHA");
+            return 0;
+        } else {
+            printf("MISS");
+            return 0;
+        }
+    } else {
+        printf("n/a");
+        return 0;
+    }
+    return 0;
+}
