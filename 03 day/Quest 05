@@ -8,18 +8,19 @@ https://www.programiz.com/c-programming/library-function/math.h/exp
 
 int main(){
 
-	float x;
+	double x, y;
 	char endline;
-	float y;
 
-	if((scanf("%f", &x)==1)&&((scanf("%c", &endline)==1)&&(endline=='\n'))){
-		y = 7e-3 * x^4 + ((22.8 * x^⅓ - 1e3) * x + 3) / (x * x / 2) - x * (10 + x)^(2/x) - 1.01
-		printf("%f", y);
+	if((scanf("%lf", &x)==1)&&((scanf("%c", &endline)==1)&&(endline=='\n'))){
+		// y = 7e-3 * x^4 + ((22.8 * x^⅓ - 1e3) * x + 3) / (x * x / 2) - x * (10 + x)^(2/x) - 1.01
+		// 7e-3 == 7 × 10-3 == 0.007
+		y = 7*pow(10, -3)*pow(x, 4)+((22.8*pow(x, 1/3)-1*(pow(10, 3)))*x+3)/(x*x/2)-x*pow((10+x),(2/x))-1.01;
+		printf("%.1lf", y);
 	}
 
 	else{
 		printf("n/a");
 		return 0;
-
+	}
 	return 0;
 }
