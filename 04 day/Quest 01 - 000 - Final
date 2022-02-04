@@ -1,0 +1,67 @@
+// Code to divide
+// Copyright 2022 finchren
+
+#include <stdio.h> 
+#include <math.h>
+
+int remainder_xy(int x, int y); 
+int main() {
+int n, c1, r1, c2, r2, w, result;
+char endline;
+
+printf("Please enter a number to find prime divisor of: ");
+if ((scanf("%d", &n) == 1) && ((scanf("%c", &endline) == 1)&&(endline == '\n'))) {
+    if (n < 0) {
+    n *= -1;
+    }
+    c1 = n - 1;
+    if (n > 2) { 
+        while(c1 >= 0) {
+            r1 = remainder_xy(n, c1);
+            if(r1==0){
+                c2 = c1 - 1;
+                while(c2 > 0) { 
+                    w = 0;   
+                    r2 = remainder_xy(c1, c2);
+                    if (r2 == 0) {
+                        break;    
+                    }
+                    if ((c2 < 3) && (w == 0)) {
+                        result = c1;
+                        printf("%d", result);
+                        return result;
+                        break;
+                    }
+                    c2--;
+                }
+            }
+            c1--;
+            if (c1 == 1) {
+                result = n;
+                        printf("%d", result);
+                        return result;
+                        break;
+            }
+        }
+    }
+    if ((n == 1) || (n == 2)) {
+        result = n;
+        printf("%d", result);
+        return result;
+    }
+    if (n == 0) {
+        printf("n/a");
+    }
+return 0;
+} else {
+        printf("n/a");
+        return 0;
+    }
+}
+
+int remainder_xy(int x, int y) { 
+    while (x >= y) {
+         x -= y;
+    }
+    return x;
+}
