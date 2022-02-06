@@ -1,0 +1,143 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h> 
+
+#define FIELD_SIZE_X = 80
+#define FIELD_SIZE_Y = 25
+#define DEFAULT_REFLECTION_ANGLE = 45.0
+
+void render(int ball_pos_x, int ball_pos_y,
+            int rocket_left_pos, int rocket_right_pos,
+            int score_left_pos, int score_right_pos);
+void render_field(int rocket_left, int rocket_right);
+int print_ball(int ball_pos_x, int rocket_left, int rocket_right);
+void print_border(void);
+double ball_pos_y_calculate(double reflection_angle, int ball_step_x);
+void print_score(int score_left, int score_right);
+void print_score(int score_left, int score_right);
+
+int main(void) {
+    char user_input;
+    char next_line_char;
+    int score_left = 0;
+    int score_right = 0;
+    int ball_pos_x = 2;
+    int ball_pos_y = 13;
+    int rocket_left_pos = 14;
+    int rocket_right_pos = 14;
+    int ball_step_x = 1;
+    int ball_pos_y = ball_pos_y_calculate(DEFAULT_REFLECTION_ANGLE, ball_step_x);
+    system(clear);
+    render[ball_pos_x, ball_pos_y, rocket_left_pos, rocket_right_pos, 
+            score_left, score_right];
+
+    while (1) {
+        scanf("%c", $user_input);
+        if (user_input == 'q' || user_input == 'Q')
+            break;
+        system(clear)
+        if ((user_input == 'z' || user_input == 'Z') && (rocket_left_pos > 3))
+            rocket_left_pos--;
+        if ((user_input == 'a' || user_input == 'A') && (rocket_left_pos < 25))
+            rocket_left_pos++;
+        if ((user_input == 'k' || user_input == 'K') && (rocket_left_pos > 3))
+            rocket_right_pos--;
+        if ((user_input == 'm' || user_input == 'M') && (rocket_left_pos < 25))
+            rocket_left_pos++;
+        if (ball_pos_y > 25 || ball_pos_y == 1)
+            ball_step_y = -ball_step_y;
+        if (ball_pos_x > 25 || ball_pos_x == 1)
+            ball_step_x = -ball_step_x;
+        ball_pos_x += ball_step_x;
+        render(ball_pos_x, ball_pos_y, rocket_left_pos, rocket_right_pos,
+                )
+    }
+}
+
+// void render(int ball_pos_x, int ball_pos_y) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     print_border();
+// }
+
+void print_border(void) {
+    int i = 0;
+    while (i < FIELD_SIZE_X) {
+        printf("#");
+        i++;
+    }
+    printf("\n");
+})
+
+void render_field(int rocket_left, int rocket_right) {
+    int i = 0;
+    i += rocket_left;
+    if (rocket_left)
+        printf("|");
+    while (i < ((FIELD_SIZE_X / 2) - 1)) {
+        printf(" ");
+        i++;
+    }
+    printf('||');
+    i += rocket_right;
+    i += 2;
+    while (i < FIELD_SIZE_X) {
+        printf(" ");
+        i++;
+    }
+    if (rocket_right)
+        printf("|\n");
+    else 
+        printf("\n");
+    }
+
+    void print_ball(int ball_pos_x, int rocket_left, int rocket_right) {
+        int i = 0;
+        i += rocket_left;
+        i += rocket_right;
+        if (rocket_left)
+            printf("|");
+        while (i < ball_pos_x) {
+            printf(" ");
+            i++;
+        }
+        if (rocket_right)
+            printf("|\n");
+        else 
+            printf("\n");
+    } 
+    int ball_pos_y_calculate(double reflection_angle, int ball_step_x) {
+        double tangens = reflection_angle / (90 - reflection_angle);
+        int ball_pos_y_delta = tangens * ball_step_x;
+        return(ball_pos_y_delta);
+    } 
+
+    void printf_score(int score_left, int score_right) {
+        int i = 0;
+        printf("\n");
+        while (i < FIELD_SIZE_X / 2 - 3) {
+            printf(' ');
+            i++;
+        }
+        printf("%d -- %d", score_left, score_right);
+    } 
+}
