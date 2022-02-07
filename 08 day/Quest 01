@@ -1,0 +1,37 @@
+https://www.guru99.com/c-pointers.html#:~:text=The%20Pointer%20in%20C%2C%20is,and%20achieve%20faster%20execution%20time.
+
+#include <stdio.h>
+
+void maxmin(int prob1, int prob2, int prob3, int *max, int *min);
+
+/* Find a max & min probabilities */
+int main()
+{
+    char c;
+1    int x, y, z;
+    int max = 0, min = 0;
+    if ((scanf("%d %d %d", &x, &y, &z) == 3) && ((scanf("%c", &c) == 1) && (c == '\n'))) {
+        maxmin(x, y, z, &max, &min);
+        printf("%d %d", max, min);
+        return 0;
+    } else {
+        printf("n/a");
+        return 0;
+    }
+}
+/* This function should be kept !!! (Your AI) */
+/* But errors & bugs should be fixed         */
+void maxmin(int prob1, int prob2, int prob3, int *max, int *min)
+{
+    *max = *min = prob1;
+    
+    if(prob2 > *max)
+        *max = prob2;
+    if(prob2 < *min)
+        *min = prob2;
+    
+    if(prob3 > *max)
+        *max = prob3;
+    if(prob3 < *min)
+        *min = prob3;    
+}
