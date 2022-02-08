@@ -1,0 +1,92 @@
+#include <stdio.h>
+#define NMAX 10
+
+int input(int *a, int *n);
+void output(int *a, int n);
+int max(int *a, int n);
+int min(int *a, int n);
+// double mean(int *a, int n);
+// double variance(int *a, int n);
+
+void output_result(int max_v,
+                int min_v
+                //    double mean_v,
+                //    double variance_v
+                   );
+
+int main()
+{
+    int n, data[NMAX];
+    if (input(data, &n) == 0) {
+    output(data, n);
+    output_result(max(data, n),
+                min(data, n)
+    //               mean(data, n),
+    //               variance(data, n)
+    );
+    } else {
+        printf("n/a");
+    }
+    return 0;
+}
+
+int input(int *a, int *n) {
+    char c;
+    int input = scanf("%d%c", n, &c);
+    if (*n <= 0 || *n > NMAX) {
+        return 1;
+    }
+    if (input == 2 && c == '\n') {
+        for (int *p = a; p - a < *n; p++) {
+        int num = scanf("%d", p);
+        if (num != 1) {
+            return 1;
+            }
+        }
+    } else {
+        return 1;
+    }
+    char garbage = getchar();
+    if (garbage != '\n' && garbage != EOF) {
+        return 1;
+                }
+    return 0;
+}
+
+void output(int *a, int n) {
+    for (int *p = a; p - a < n; p++) {
+        printf("%d", *p);
+        if (p - a < n - 1) {
+            printf(" ");
+        }
+    }
+}
+
+void output_result(int max_v,
+                    int min_v
+                //    double mean_v,
+                //    double variance_v
+                   ) {
+    
+    printf("\n%d %d", max_v, min_v);
+}
+
+int max(int *a, int n) {
+    int *max_number = a;
+    for (int *p = a; p - a < n; p++) {
+        if (*p > *max_number) {
+            *max_number = *p;
+        }
+    }
+    return *max_number;
+}
+
+int min(int *a, int n) {
+    int *min_number = a;
+    for (int *p = a; p - a < n; p++) {
+        if (*p < *min_number) {
+            *min_number = *p;
+        }
+    }
+    return *min_number;
+}
