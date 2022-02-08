@@ -1,0 +1,136 @@
+/*
+    Search module for the desired value from data array.
+
+    Returned value must be:
+        - "even"
+        - ">= mean"
+        - "<= mean + 3 * sqrt(variance)"
+        - "!= 0"
+
+        OR
+
+        0
+*/
+
+#include <stdio.h>
+#include <math.h>
+#define NMAX 30
+
+int input(int *a, int *n);
+double mean(int *a, int n);
+double variance(int *a, int n);
+int is_even(int *a, int n);
+int is_found(int *a, int n);
+
+void output_result(                
+                double mean_v,
+                int is_even,
+                double variance_v
+);
+
+int main() {
+    int n, data[NMAX];
+    if (input(data, &n) == 0) {
+        if (is_found(data, n) != 1) {
+        printf("%d", is_found(data, n));
+        }
+        else {
+            int null_result = 0;
+            printf("%d", null_result);
+        }
+    } else {
+        printf("n/a");
+    }
+    return 0;
+}
+
+int input(int *a, int *n) {
+    char c;
+    int input = scanf("%d%c", n, &c);
+    if (*n <= 0 || *n > NMAX) {
+        return 1;
+    }
+    if (input == 2 && c == '\n') {
+        for (int *p = a; p - a < *n; p++) {
+        int num = scanf("%d", p);
+        if (num != 1) {
+            return 1;
+            }
+        }
+    } else {
+        return 1;
+    }
+    char garbage = getchar();
+    if (garbage != '\n' && garbage != EOF) {
+        return 1;
+                }
+    return 0;
+}
+
+int max(int *a, int n) {
+    int max_number = a[0];
+    for (int *p = a; p - a < n; p++) {
+        if (*p > max_number) {
+            max_number = *p;
+        }
+    }
+    return max_number;
+}
+
+int min(int *a, int n) {
+    int min_number = a[0];
+    for (int *p = a; p - a < n; p++) {
+        if (*p < min_number) {
+            min_number = *p;
+        }
+    }
+    return min_number;
+}
+
+double mean(int *a, int n) {
+    double mean_number = 0.0;
+    for (int *p = a; p - a < n; p++) {
+        mean_number += *p;
+    }
+    double mean_result = mean_number / n;
+    return mean_result;
+}
+
+double variance(int *a, int n) {
+    double variance_number = 0.0;
+    for (int *p = a; p - a < n; p++) {
+        variance_number += (*p - mean(a, n)) * (*p - mean(a, n));
+    }
+    double variance_result = variance_number / n;
+    return variance_result;
+}
+
+int is_even(int *a, int n) {
+    for (int *p = a; p - a < n; p++) {
+        if (*p/2 == 0) {
+            return 0;
+            }
+        }
+    return 1;
+}
+
+// Returned value must be:
+//         - "even"
+//         - ">= mean"
+//         - "<= mean + 3 * sqrt(variance)"
+//         - "!= 0"
+
+//         OR
+
+//         0
+
+int is_found(int *a, int n) {
+    int is_found_result = 0;
+     for (int *p = a; p - a < n; p++) {
+        if ( (is_even(p, n) == 0) && (*p >= mean(p, n)) && (*p <= (mean(p, n) + 3 * sqrt(variance(p, n)))) && (*p != 0)) {
+            is_found_result = *p;
+            return is_found_result;
+        }
+    }
+    return 1;
+}
