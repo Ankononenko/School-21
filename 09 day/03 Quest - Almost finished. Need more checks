@@ -1,0 +1,98 @@
+/*------------------------------------
+	Здравствуй, человек!
+	Чтобы получить ключ 
+	поработай с комментариями.
+-------------------------------------*/
+#include <stdio.h>
+#define NMAX 10
+
+int input (int *a, int *n);
+void output (int a, int *b, int counter);
+int sum_numbers(int *a, int n);
+int find_numbers(int *a, int n, int sum_result, int *b);
+/*------------------------------------
+	Функция получает массив данных 
+	через stdin.
+	Выдает в stdout особую сумму
+	и сформированный массив 
+	специальных элементов
+	(выбранных с помощью найденной суммы):
+	это и будет частью ключа
+-------------------------------------*/
+int main(){
+    int n, data[NMAX], numbers_to_return[NMAX];
+    if (input(data, &n) == 0) {
+    sum_numbers(data, n);
+    // output(sum_numbers(data, n));
+    find_numbers(data, n, sum_numbers(data, n), numbers_to_return);
+    int counter_for_second_array = find_numbers(data, n, sum_numbers(data, n), numbers_to_return);
+    // printf("test %d\n", *numbers_to_return);
+    output(sum_numbers(data, n), numbers_to_return, counter_for_second_array);
+    } else {
+        printf("n/a");
+    }
+    return 0;
+}
+
+int input(int *a, int *n) {
+    char c;
+    int input = scanf("%d%c", n, &c);
+    if (*n <= 0 || *n > NMAX) {
+        return 1;
+    }
+    if (input == 2 && c == '\n') {
+        for (int *p = a; p - a < *n; p++) {
+        int num = scanf("%d", p);
+        if (num != 1) {
+            return 1;
+            }
+        }
+    } else {
+        return 1;
+    }
+    char garbage = getchar();
+    if (garbage != '\n' && garbage != EOF) {
+        return 1;
+                }
+    return 0;
+}
+
+void output(int a, int *b, int counter) {
+    printf("%d\n", a);
+    for (int *p = b; p - b < counter; p++) {
+        printf("%d ", *p);
+    }
+    printf("\b");
+}
+/*------------------------------------
+	Функция должна находить
+	сумму четных элементов 
+	с 0-й позиции.
+-------------------------------------*/
+int sum_numbers(int *a, int n) {
+    int sum = 0;
+	for (int i = 0; i < n; i++) {
+		if (a[i] % 2 == 0) {
+			sum += a[i];
+		}
+	}
+    return sum;
+}
+/*------------------------------------
+	Функция должна находить
+	все элементы, на которые нацело
+	делится переданное число и
+	записывает их в выходной массив.
+-------------------------------------*/
+int find_numbers(int *a, int n, int sum_result, int *b) {
+    int i = 0;
+    for (int *p = a; p - a < n; p++) {
+        if (sum_result % *p == 0) {
+            *b = *p;
+            b++;
+            i++;
+            printf("find numbers - %d\n", *b);
+        }
+    }
+    return i;
+}
