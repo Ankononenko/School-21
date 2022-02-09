@@ -1,3 +1,5 @@
+https://www.geeksforgeeks.org/array-rotation/
+
 #include <stdio.h>
 #define NMAX 7
 
