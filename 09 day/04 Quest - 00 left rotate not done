@@ -1,0 +1,70 @@
+#include <stdio.h>
+#define NMAX 7
+
+int input(int *a, int *n, int *c);
+void output(int *a, int b);
+void shift_left(int *a, int n, int c);
+void leftRotatebyOne(int *a, int n);
+// void shift_right();
+
+int main() {
+    int n, c, data[NMAX];
+    if (input(data, &n, &c) == 0) {
+        if (c > 0) {
+            shift_left(data, n, c);
+            output(data, n);
+        } else if (c < 0) {
+            // shift_right(data, n);
+            // output(data, n); 
+            printf("right");
+            } else {
+        printf("n/a"); } 
+    } else {
+        printf("n/a");
+    }
+    return 0;
+}
+
+int input(int *a, int *n, int *c) {
+    char ch;
+    int input = scanf("%d%c", n, &ch);
+    if (*n > NMAX) {
+        return 1;
+    }
+    if (input == 2 && ch == '\n') {
+        for (int *p = a; p - a < *n; p++) {
+        int num = scanf("%d", p);
+        if (num != 1) {
+            return 1;
+            }
+        }
+        scanf("%d", c);
+    } else {
+        return 1;
+    }
+    return 0;
+}
+
+void shift_left(int *a, int c, int n)
+{
+    int i;
+    for (i = 0; i < c; i++)
+        leftRotatebyOne(a, n);
+}
+ 
+void leftRotatebyOne(int *a, int n)
+{
+    int temp = a[0], i;
+    for (i = 0; i < n - 1; i++)
+        a[i] = a[i + 1];
+    a[n-1] = temp;
+}
+
+void output(int *a, int n) {
+    for (int *p = a; p - a < n; p++) {
+        printf("%d", *p);
+        if (p - a < n - 1) {
+            printf(" ");
+        }
+    }
+}
