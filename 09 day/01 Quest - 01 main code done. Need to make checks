@@ -1,0 +1,50 @@
+// Copyright 2022 finchren
+#include <stdio.h> 
+#define NMAX 3
+
+int input(int *a);
+void output(int *a);
+void bubble_sort(int *a);
+void swap(int *i, int *j);
+
+int main() {
+
+    int data[NMAX];
+    input(data);
+    bubble_sort(data);
+    output(data);
+
+    return 0;
+}
+
+int input(int *a) {
+    for (int i = 0; i < NMAX; i++) {
+        scanf("%d", &a[i]);
+        }
+    return 0;
+}
+
+void output(int *a) {
+    for (int i = 0; i < NMAX; i++) {
+        printf("%d", a[i]);
+        if (i < NMAX - 1) {
+            printf(" ");
+        }
+    }
+}
+
+void swap(int *i, int *j) {
+    int temp = *i;
+    *i = *j;
+    *j = temp;
+}
+
+void bubble_sort (int *a) {
+    for (int i = 0; i < NMAX - 1; i++) {
+        for (int j = 0; j < NMAX - i - 1; j++) {
+            if (a[j] > a[j+1]) {
+                swap(a + j, a + j + 1);
+            }
+        }
+    }
+}
