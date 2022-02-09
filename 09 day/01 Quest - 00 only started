@@ -1,0 +1,29 @@
+// Copyright 2022 finchren
+#include <stdio.h> 
+#define NMAX 3
+
+int input(int *a);
+void output(int *a);
+
+int main() {
+
+    int data[NMAX];
+    input(data);
+    output(data);
+
+    return 0;
+}
+
+int input(int *a) {
+    for (int i = 0; i < NMAX; i++) {
+        scanf("%d", &a[i]);
+        printf("a = %d \n", a[i]);
+        }
+    return 0;
+}
+
+void output(int *a) {
+    for (int i = 0; i < NMAX; i++) {
+        printf("Final a %d", a[i]);
+    }
+}
