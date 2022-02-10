@@ -1,0 +1,77 @@
+https://www.youtube.com/watch?v=dNwXcyLfHkI&list=PLRDzFCPr95fLjzcv6nNdjMu_9RcZgIM9U&index=36&ab_channel=%D0%A2%D0%B8%D0%BC%D0%BE%D1%84%D0%B5%D0%B9%D0%A5%D0%B8%D1%80%D1%8C%D1%8F%D0%BD%D0%BE%D0%B2
+https://api-2d3d-cad.com/c/
+https://www.guru99.com/difference-between-malloc-and-calloc.html
+
+// Copyright 2022 finchren
+#include <stdio.h>
+#include <stdlib.h>
+#define NMAX 10
+
+int input(int *a);
+void output(int *a);
+void bubble_sort(int *a);
+void swap(int *i, int *j);
+void check_array_lenght();
+int input_n(int n);
+
+int main() {
+    int number_of_rows = 0;
+    input_n(number_of_rows);
+    int *data = malloc(NMAX * sizeof(number_of_rows));
+    if (data != NULL) {
+    if (input(data) == 0) {
+        bubble_sort(data);
+        output(data);
+    } else {
+        printf("n/a");
+    } 
+    } else {
+        printf("n/a");
+        free(data);
+    }
+    return 0;
+}
+
+int input_n(int n) {
+    scanf("%d", &n);
+    return n;
+}
+
+int input(int *a) {
+    char endline;
+    for (int i = 0; i < NMAX; i++) {
+        scanf("%d", &a[i]);
+        if (i == NMAX - 1) {
+            scanf("%c", &endline);
+            if (endline == '\n') {
+            return 0;
+            }
+        }
+    }
+    return 1;
+}
+
+void output(int *a) {
+    for (int i = 0; i < NMAX; i++) {
+        printf("%d", a[i]);
+        if (i < NMAX - 1) {
+            printf(" ");
+        }
+    }
+}
+
+void swap(int *i, int *j) {
+    int temp = *i;
+    *i = *j;
+    *j = temp;
+}
+
+void bubble_sort(int *a) {
+    for (int i = 0; i < NMAX - 1; i++) {
+        for (int j = 0; j < NMAX - i - 1; j++) {
+            if (a[j] > a[j+1]) {
+                swap(a + j, a + j + 1);
+            }
+        }
+    }
+}
