@@ -1,0 +1,80 @@
+// Copyright 2022 finchren
+#include <stdio.h>
+#include <stdlib.h>
+
+int input(int *a, int n);
+void output(int *a, int n);
+void bubble_sort(int *a, int n);
+void swap(int *i, int *j);
+void check_array_lenght();
+int input_n(int *n);
+
+int main() {
+    int number_of_rows;
+    if (input_n(&number_of_rows) > 0) {
+    int *data = (int *)malloc(sizeof(int)*number_of_rows);
+    if (data != NULL) {
+    if (input(data, number_of_rows) == 0) {
+        bubble_sort(data, number_of_rows);
+        output(data, number_of_rows);
+    } else {
+        printf("n/a");
+    }
+    } else {
+        printf("n/a");
+        free(data);
+    }
+    free(data);
+    return 0;
+    } else {
+        printf("n/a");
+        return 1;
+    }
+}
+
+int input_n(int *n) {
+    if (scanf("%d", n)) {
+        return *n;
+    } else {
+        return 0;
+    }
+}
+
+int input(int *a, int n) {
+    char endline;
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+        if (i == n - 1) {
+            scanf("%c", &endline);
+            if (endline == '\n') {
+            return 0;
+            }
+        }
+    }
+    return 1;
+}
+
+void output(int *a, int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%d", a[i]);
+        if (i < n - 1) {
+            printf(" ");
+        }
+    }
+}
+
+void swap(int *i, int *j) {
+    int temp = *i;
+    *i = *j;
+    *j = temp;
+}
+
+void bubble_sort(int *a, int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (a[j] > a[j+1]) {
+                swap(a + j, a + j + 1);
+            }
+        }
+    }
+}
