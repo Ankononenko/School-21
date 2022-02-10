@@ -1,0 +1,130 @@
+// Copyright 2022 finchren
+#include <stdio.h>
+#include <stdlib.h>
+#define NMAX 100
+
+int input_select_method(int *method);
+int input_size(int *colums, int *rows);
+int static_input_and_output_array_elements(int *column_element,
+int *row_element, int input_size_colums, int input_size_rows);
+void first_dynamic(int input_size_colums, int input_size_rows);
+void second_dynamic(int input_size_colums, int input_size_rows);
+void third_dynamic(int input_size_colums, int input_size_rows);
+void input_d(int **matrix, int s, int c);
+
+int main() {
+    int input_select, input_size_colums, input_size_rows, column_element, row_element;
+    input_select_method(&input_select);
+    if (input_select <= 4 && input_select > 0) {
+    input_size(&input_size_colums, &input_size_rows);
+        if (input_size_colums <= 100 && input_size_rows <= 100 &&
+        input_size_colums > 0 && input_size_rows > 0) {
+            if (input_select == 1) {
+            static_input_and_output_array_elements(&column_element,
+            &row_element, input_size_colums, input_size_rows);
+            } else if (input_select == 2) {
+            first_dynamic(input_size_colums, input_size_rows);
+            } else if (input_select == 3) {
+            second_dynamic(input_size_colums, input_size_rows);
+            } else if (input_select == 4) {
+            third_dynamic(input_size_colums, input_size_rows);
+            } else {
+                printf("n/a");
+            }
+        } else {
+                printf("n/a");
+            }
+    } else {
+                printf("n/a");
+            }
+    return 0;
+}
+
+int input_select_method(int *method) {
+    scanf("%d", method);
+    return *method;
+}
+
+int input_size(int *input_size_colums, int *input_size_rows) {
+    scanf("%d %d", input_size_colums, input_size_rows);
+    return 0;
+}
+
+int static_input_and_output_array_elements(int *column_element, int *row_element,
+int input_size_colums, int input_size_rows) {
+    int row = 0;
+    int column = 0;
+    int array[input_size_colums][input_size_rows];
+    for (row = 0; row <= input_size_rows - 1; row++) {
+        scanf("%d", &row_element[row]);
+        array[row][column] = row_element[row];
+        printf("%d ", array[row][column]);
+        for (column = 0; column < input_size_colums - 1; column++) {
+            scanf("%d", &column_element[column]);
+            array[row][column] = column_element[column];
+            printf("%d", array[row][column]);
+            if (column < input_size_colums - 2) {
+            printf(" ");
+            }
+        }
+        if (row <= input_size_rows - 2) {
+            printf("\n");
+            }
+    }
+    return 0;
+}
+
+void input_d(int **matrix, int input_size_colums, int input_size_rows) {
+    for (int i = 0; i < input_size_rows; i++) {
+        for (int k = 0; k < input_size_colums; k++) {
+            scanf("%d", &matrix[i][k]);
+        }
+    }
+}
+
+void output(int ** a, int input_size_colums, int input_size_rows) {
+    for (int k = 0; k < input_size_rows; k++) {
+        for (int i = 0; i < input_size_colums; i++) {
+            printf("%d ", (a[k][i]));
+        }
+        printf("\n");
+    }
+    printf("\b");
+}
+
+void first_dynamic(int input_size_colums, int input_size_rows) {
+    int **matrix = malloc(input_size_colums * input_size_rows *
+    sizeof(int) + input_size_colums * sizeof(int*));
+    int *save = (int*) (matrix + input_size_colums);
+    for (int i = 0; i < input_size_colums; i++) {
+        matrix[i] = save + input_size_rows*i;
+    }
+    input_d(matrix, input_size_rows, input_size_colums);
+    output(matrix, input_size_rows, input_size_colums);
+    printf("\b");
+    free(matrix);
+}
+
+void second_dynamic(int input_size_colums, int input_size_rows) {
+    int **matrix = malloc(input_size_colums * sizeof(int*));
+    for (int i = 0; i < input_size_colums; i++) {
+        matrix[i] = malloc(input_size_rows * sizeof(int));
+    }
+    input_d(matrix, input_size_rows, input_size_colums);
+    output(matrix, input_size_rows, input_size_colums);
+    printf("\b");
+    free(matrix);
+}
+
+void third_dynamic(int input_size_colums, int input_size_rows) {
+    int **matrix = malloc(input_size_colums * input_size_rows *
+    sizeof(int) + input_size_colums * sizeof(int*));
+    int *save = (int*) (matrix + input_size_colums);
+    for (int i = 0; i < input_size_colums; i++) {
+        matrix[i] = save + input_size_rows*i;
+    }
+    input_d(matrix, input_size_rows, input_size_colums);
+    output(matrix, input_size_rows, input_size_colums);
+    printf("\b");
+    free(matrix);
+}
