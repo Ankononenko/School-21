@@ -1,0 +1,67 @@
+// Copyright 2022 finchren
+#include <stdio.h>
+#include <stdlib.h>
+
+// Rules of change for a cell: 
+// 0 -> >= 3 live -> 1
+// 1 -> < 2 live || >= 3 live -> 0
+
+void dynamic_array_fill(int height, int width);
+int ** dynamic_array_mem_alloc(int height, int width);
+void dynamic_array_print(int **array, int height, int width);
+void dynamic_array_free(int **array, int height);
+double get_random_number(double min, double max);
+
+int main() {
+    int matrix_height = 25, matrix_width = 80;
+    dynamic_array_fill(matrix_height, matrix_width);
+    return 0;
+}
+
+void dynamic_array_fill(int height, int width) {
+    int **array = dynamic_array_mem_alloc(height, width);
+    if (array == NULL) {
+        printf("NULL error");
+    }
+    int cell_alive = 1;
+    int cell_dead = 0;
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            if (get_random_number(0.0, 1.0) <= 0.35) {
+                (array[i])[j] = cell_alive;
+            } else {
+                (array[i])[j] = cell_dead;
+            }
+        }
+    }
+    dynamic_array_print(array, height, width);
+    dynamic_array_free(array, height);
+}
+
+int ** dynamic_array_mem_alloc(int height, int width) {
+    int ** array = (int **)malloc(height*sizeof(int*));
+    for(int i = 0; i < height; i++) {
+        array[i] = (int *)malloc(width*sizeof(int));
+    }
+    return array;
+}
+
+void dynamic_array_free(int **array, int height) {
+    for (int i = 0; i < height; i++) {
+        free(array[i]);
+    }
+    free(array);
+}
+
+void dynamic_array_print(int **array, int height, int width) {
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            printf("%d", array[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+double get_random_number(double min, double max) {
+    return((double)rand() / RAND_MAX) * (max - min) + min;
+}
