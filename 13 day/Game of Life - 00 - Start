@@ -1,8 +1,10 @@
-https://www.youtube.com/watch?v=FWSR_7kZuYg&ab_channel=TheCodingTrain
-https://www.youtube.com/watch?v=MQBV3PMx5sg&ab_channel=%D0%A2%D0%B8%D0%BC%D0%BE%D1%84%D0%B5%D0%B9%D0%A5%D0%B8%D1%80%D1%8C%D1%8F%D0%BD%D0%BE%D0%B2
-https://en.cppreference.com/w/c/types/size_t
-https://www.youtube.com/watch?v=flYIkz4XHQc&ab_channel=AttackedByWolves
-http://cs.mipt.ru/c_intro/lessons/lesson5.html
+game making tutorial - https://www.youtube.com/watch?v=FWSR_7kZuYg&ab_channel=TheCodingTrain
+Хирьянова лекция - https://www.youtube.com/watch?v=MQBV3PMx5sg&ab_channel=%D0%A2%D0%B8%D0%BC%D0%BE%D1%84%D0%B5%D0%B9%D0%A5%D0%B8%D1%80%D1%8C%D1%8F%D0%BD%D0%BE%D0%B2
+game making tutorial - https://www.youtube.com/watch?v=flYIkz4XHQc&ab_channel=AttackedByWolves
+game making tutorial - https://www.youtube.com/watch?v=zrA77vUSli4&ab_channel=AttackedByWolves
+game making tutorial - https://www.youtube.com/watch?v=bg3Emk0yhhM&ab_channel=AttackedByWolves
+input - output - http://cs.mipt.ru/c_intro/lessons/lesson5.html
+random - https://stackoverflow.com/questions/10545068/rand-maxmax-minmin-what-is-that/10545183
 
 // Copyright 2022 finchren
 #include <stdio.h>
