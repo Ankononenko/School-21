@@ -5,30 +5,33 @@ https://www.youtube.com/watch?v=flYIkz4XHQc&ab_channel=AttackedByWolves
 
 // Copyright 2022 finchren
 #include <stdio.h>
+#include <stdlib.h>
 
 // Rules of change for a cell: 
-// 0 -> >= 3 live -> 0
+// 0 -> >= 3 live -> 1
 // 1 -> < 2 live || >= 3 live -> 0
 
 void dynamic_array_fill(int height, int width);
 int ** dynamic_array_mem_alloc(int height, int width);
-void dynamic_array_free(int **array, )
+void dynamic_array_free(int **array, int height);
+void dynamic_array_print(int **array, int height, int width);
 
 int main() {
     int matrix_height = 25, matrix_width = 80;
-    dynamic_display_field(matrix_height, matrix_width);
+    dynamic_array_fill(matrix_height, matrix_width);
     return 0;
 }
 
 void dynamic_array_fill(int height, int width) {
     int **array = dynamic_array_mem_alloc(height, width);
-    int cell = 0;
+    int cell = 1;
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
             (array[i])[j] = cell;
-            cell++;
+            // cell++;
         }
     }
+    dynamic_array_print(array, height, width);
 }
 int ** dynamic_array_mem_alloc(int height, int width) {
     int ** array = (int **)malloc(height*sizeof(int*));
@@ -36,4 +39,19 @@ int ** dynamic_array_mem_alloc(int height, int width) {
         array[i] = (int *)malloc(width*sizeof(int));
     }
     return array;
+}
+
+void dynamic_array_free(int **array, int height) {
+    for (int i = 0; i < height; i++) {
+        free(array[i]);
+    }
+}
+
+void dynamic_array_print(int **array, int height, int width) {
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            printf("%d", array[i][j]);
+        }
+        printf("\n");
+    }
 }
