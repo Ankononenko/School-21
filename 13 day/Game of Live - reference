@@ -1,0 +1,108 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ncurses.h>
+
+void evolution(void *a, int w, int h);
+void draw(void *a, int w, int h);
+void init();
+void finish();
+void input_1(void *a, int w, int h);
+
+int main() {
+	
+    char ch = 0; 
+    init();
+    int speed = 100;						//variables init
+    int w = 80;								//width
+    int h = 25;								//height
+    int earth[h][w];						//original matrix
+    input_1(earth, w, h);
+		
+	while ((ch != 'q') && (ch != 'Q')) {    //the main loop of the program before pressing on the exit trigger (q, Q)
+        clear();							//clear cmd
+		napms(speed);						
+		draw(earth, w, h);
+		ch = getch();						//reading an imput char
+		evolution(earth, w, h);
+        if ((ch == 'e') ||(ch == 'E')) {	//speed control (down)
+            speed += 10;
+		}
+        if ((ch == 'r') || (ch == 'R')) {   //speed control (up)
+            speed -= 10;
+		}
+	}
+    finish();	
+	return 0;
+}
+
+
+void input_1(void *a, int w, int h) {       //input first variation of file
+	FILE *f; 
+	f = fopen("txt1.txt", "r");             //sending file to stdin
+	int (*earth)[w] = a;
+    for (int y = 0; y < h ; y++) {
+        for (int x = 0; x < w ; x++) {
+	fscanf(f, "%d", &earth[y][x]);
+   		}
+	}
+	fclose(f);
+}	
+
+void evolution(void *a, int w, int h) {        					 	//function creation of live
+	int (*earth)[w] = a;											//pointer to static array
+	int new[h][w];													//second array for new lives
+	for (int y = 0; y < h; y++) {									//loop to go through first matrix (y cord)
+		for (int x = 0; x < w; x++) {								//loop to go through first matrix (x cord)
+			int lives = 0;											//lives init
+			for (int yd = y - 1; yd <= y + 1; yd++) {				//loop to go through small matrix 3x3 around live
+				for (int xd = x - 1; xd <= x + 1; xd++) {          	//loop to go through small matrix 3x3 around live
+					if (earth[(yd + h) % h][(xd + w) % w] != 0) {   //check neighbors in cornenrs and on the other side
+						lives++;
+					}
+				}	
+			}
+			if (earth[y][x] != 0) {                                 
+				lives--;
+			}
+	
+			new[y][x] = (lives == 3 || (lives == 2 && earth[y][x] != 0));   //if lives == 3 or lives == 2 and element not NULL, then			                                                                 // new element = 1, if not true, new element = 0;
+
+		}
+	}
+	
+	for (int y = 0; y < h; y++) {
+		for (int x = 0; x < w; x++) {						//copy loop
+			earth[y][x] = new[y][x];
+		}
+	}
+
+}
+
+
+void draw(void *a, int w, int h) {
+	int (*earth)[w] = a;										//loop for printing "#", if segment = 1 and " ", when segment = 0;
+	for (int y = 0; y < h; y++) {
+		for (int x = 0; x < w; x++) {
+			printw(earth[y][x] ? "#" : " ");                    
+		}
+		printw("\n");
+	}
+}
+
+
+void init() {
+initscr();  //  Функция библиотеки curses. Инициализирует все функции-флаги библиотеки curses
+savetty();  //  Функция библиотеки curses. Сохраняет первичные настройки терминала
+cbreak();  //  Функция библиотеки curses. Благодаря ей не нужно нажимать enter при вводе переменной
+noecho();  //  Функция библиотеки curses. Убирает введенное значение с терминала
+timeout(0);  //  Функция библиотеки curses. Не блокирующее чтение переменной
+curs_set(0);  //  Функция библиотеки curses. Убирает курсор
+}
+
+
+void finish() {
+curs_set(1);  //  Функция библиотеки curses. Возвращает курсор
+refresh();  //  Функция библиотеки curses. обновляет терминал
+resetty();  //  Функция библиотеки curses. Возвращает исходные настройки терминала
+endwin();  //  Функция библиотеки curses. Заканчивает работу библиотки ncurses
+}
