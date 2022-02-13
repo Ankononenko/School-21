@@ -23,3 +23,129 @@ void read_file (int board[][BOARD_HEIGHT], char *name) {
 }
 
 https://www.cs.utexas.edu/users/djimenez/utsa/cs1713-3/c/life.txt
+
+
+// Copyright 2022 finchren
+#include <stdio.h>
+#include <stdlib.h>
+
+// Rules of change for a cell: 
+// 0 -> >= 3 live -> 1
+// 1 -> < 2 live || >= 3 live -> 0
+
+void dynamic_array_fill(int height, int width);
+int ** dynamic_array_mem_alloc(int height, int width);
+void dynamic_array_print(int **array, int height, int width);
+void dynamic_array_free(int **array, int height);
+int get_random_number(int random_seed_number);
+int count_neighborgood(int **array, int height, int width, int x, int y);
+int* update_array(int **previous_array, int height, int width);
+
+int main() {
+    int matrix_height = 25, matrix_width = 80;
+    dynamic_array_fill(matrix_height, matrix_width);
+    return 0;
+}
+
+void dynamic_array_fill(int height, int width) {
+    int **array = dynamic_array_mem_alloc(height, width);
+    if (array == NULL) {
+        printf("NULL error");
+    }
+    int cell_alive = 1;
+    int cell_dead = 0;
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            if (get_random_number(100) < 25) {
+                (array[i])[j] = cell_alive;
+            } else {
+                (array[i])[j] = cell_dead;
+            }
+        }
+    }
+    dynamic_array_print(array, height, width);
+    int *next_array = update_array(array, height, width);
+    if (next_array == NULL) {
+        printf("NULL error");
+        return;
+    }
+    dynamic_array_free(array, height);
+    array = &next_array;
+    dynamic_array_print(array, height, width);
+    
+}
+
+int ** dynamic_array_mem_alloc(int height, int width) {
+    int **array = (int **)malloc(height*sizeof(int*));
+    for(int i = 0; i < height; i++) {
+        array[i] = (int *)malloc(width*sizeof(int));
+    }
+    return array;
+}
+
+void dynamic_array_free(int **array, int height) {
+    for (int i = 0; i < height; i++) {
+        free(array[i]);
+    }
+    free(array);
+}
+
+void dynamic_array_print(int **array, int height, int width) {
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
+            printf("%d", array[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int get_random_number(int random_seed_number) {
+    return((int)rand() % random_seed_number);
+}
+
+int count_neighborgood(int **array, int height, int width, int x, int y) {
+    int count = 0;
+    int center = y*height+x;
+    for (int i = -1; i < height; i++) {
+        for (int j = -1; j < width; j++) {
+            int cell = **(array+center+(i*width)+j);
+            if (cell == 1) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
+// Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+// Any live cell with two or three live neighbours lives on to the next generation.
+// Any live cell with more than three live neighbours dies, as if by overpopulation.
+// Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+
+int* update_array(int **previous_array, int height, int width) {
+    int **next_array = dynamic_array_mem_alloc(height, width);
+    if (next_array == NULL) {
+        printf("NULL error");
+    }
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            int alive = count_neighborgood(previous_array, height, width, x, y);
+            int cell = **(previous_array+y*width+x);
+            if (cell == 1) alive--;
+            *(next_array+y*width+x) = &cell;
+            if(alive < 2) {
+                **(next_array+y*width+x) = 0;
+            }
+            if((alive == 2 || alive == 3) && (cell == 1)) {
+                **(next_array+y*width+x) = 1;
+            }
+            else if (alive > 3 && cell == 1) {
+                **(next_array+y*width+x) = 0;
+            }
+            else if (alive == 3 && cell == 0) {
+                **(next_array+y*width+x) = 1;
+            }
+        }
+    }
+    return *next_array;
+}
