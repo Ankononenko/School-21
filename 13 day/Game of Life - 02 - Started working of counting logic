@@ -1,2 +1,25 @@
 http://www.rohitab.com/discuss/topic/33623-conways-game-of-life-in-cc/
 
+READFILE METHOD 
+void read_file (int board[][BOARD_HEIGHT], char *name) {
+	FILE	*f;
+	int	i, j;
+	char	s[100];
+
+	f = fopen (name, "r");
+	for (j=0; j<BOARD_HEIGHT; j++) {
+
+		/* get a string */
+
+		fgets (s, 100, f);
+
+		/* copy the string to the life board */
+
+		for (i=0; i<BOARD_WIDTH; i++) {
+			board[i][j] = s[i] == 'x';
+		}
+	}
+	fclose (f);
+}
+
+https://www.cs.utexas.edu/users/djimenez/utsa/cs1713-3/c/life.txt
