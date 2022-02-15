@@ -1,0 +1,120 @@
+#include <stdio.h> 
+#include <stdlib.h>
+#include <math.h>
+#define EPS 1E-6
+
+void input(double *data, int n);
+void output(double *data, int n);
+double max(double *data, int n);
+double min(double *data, int n);
+double mean(double *data, int n);
+double variance(double *data, int n);
+int normalization(double *data, int n);
+void sort(int *data, int n);
+void swap(int *i, int *j);
+
+
+int main() {
+    double *data;
+    int n;
+    scanf("%d", &n);
+    data = malloc(n * sizeof(double));
+    input(data, n);
+    // output(data, n);
+    // printf("max - %.2lf \n", max(data, n));
+    // printf("min - %.2lf \n", min(data, n));
+
+    if (normalization(data, n))
+        output(data, n);
+    else
+        printf("ERROR");
+    return 0;
+}
+
+void input(double *data, int n) {
+    for (int i = 0; i < n; i++) {
+        scanf("%lf", &data[i]);
+        // printf("%.2lf ", data[i]);
+        }
+}
+void output(double *data, int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%.2f\n", data[i]);
+        }
+}
+
+double max(double *data, int n) {
+    double max = data[0];
+    for (double *p = data; p - data < n; p++) {
+        if (*p > *data) {
+            max = *p;
+        }
+    }
+    return max;
+}
+
+double min(double *data, int n) {
+    double min = data[0];
+    for (double *p = data; p - data < n; p++) {
+        if (*p < *data) {
+            min = *p;
+        }
+    }
+    return min;
+}
+
+double mean(double *data, int n) {
+    double mean_number = 0.0;
+    for (double *p = data; p - data < n; p++) {
+        mean_number += *p;
+    }
+    double mean_result = mean_number / n;
+    return mean_result;
+}
+
+double variance(double *data, int n) {
+    double variance_number = 0.0;
+    for (double *p = data; p - data < n; p++) {
+        variance_number += (*p - mean(data, n)) * (*p - mean(data, n));
+    }
+    double variance_result = variance_number / n;
+    return variance_result;
+}
+
+int normalization(double *data, int n) {
+    int result = 1;
+    double max_value = max(data, n);
+    printf("%.2lf\n", max(data, n));
+    double min_value = min(data, n);
+    printf("%.2lf\n", min(data, n));
+    double size = max_value - min_value;
+
+    if(fabs(size) > EPS)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            data[i] = data[i] / size - min_value / size;
+        }
+    }
+    else
+    {
+        result = 0;
+    }
+    return result;
+}
+
+void swap(int *i, int *j) {
+    int temp = *i;
+    *i = *j;
+    *j = temp;
+}
+
+void sort(int *data, int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (data[j] > data[j+1]) {
+                swap(data + j, data + j + 1);
+            }
+        }
+    }
+}
