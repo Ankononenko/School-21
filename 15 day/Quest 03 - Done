@@ -1,0 +1,40 @@
+# Set build folder at the root of repository 
+BUILDDIR=../../build/
+
+CC=gcc
+CFLAGS=-Wall -Werror -Wextra -std=c11
+DATA_IO_C=../data_libs/data_io.c
+DATA_IO_H=../data_libs/data_io.h
+DATA_STAT_C=../data_libs/data_stat.c
+DATA_STAT_H=../data_libs/data_stat.h
+DATA_PROCESS_C=../data_module/data_process.c
+DATA_PROCESS_H=../data_module/data_process.h
+MAIN_EXECUTABLE_MODULE=main_executable_module.c
+DECISION_C=../yet_another_decision_module/decision.c
+DECISION_H=../yet_another_decision_module/decision.h
+
+all: main clean
+
+main: main_executable_module.o data_io.o data_stat.o data_process.o decision.o
+	$(CC) $(CFLAGS) main_executable_module.o data_io.o data_stat.o data_process.o decision.o -o $(BUILDDIR)Quest_3
+
+main_executable_module.o: $(MAIN_EXECUTABLE_MODULE) $(DATA_IO_H) $(DATA_STAT_H) $(DECISION_H) $(DATA_PROCESS_H)
+	$(CC) $(CFLAGS) -c $(MAIN_EXECUTABLE_MODULE)
+
+data_io.o: $(DATA_IO_CO) $(DATA_IO_H)
+	$(CC) $(CFLAGS) -c $(DATA_IO_C)
+
+data_stat.o: $(DATA_STAT_C) $(DATA_STAT_H)
+	$(CC) $(CFLAGS) -c $(DATA_STAT_C)
+
+data_process.o: $(DATA_PROCESS_C) $(DATA_PROCESS_H)
+	$(CC) $(CFLAGS) -c $(DATA_PROCESS_C)
+
+decision.o: $(DECISION_C) $(DECISION_H)
+	$(CC) $(CFLAGS) -c $(DECISION_C)
+
+rebuild:
+	clean main_executable_module
+
+clean:
+	rm -f *.o
