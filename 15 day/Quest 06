@@ -1,0 +1,51 @@
+# Copyright 2022 finchren
+# Set build folder at the root of repository 
+BUILDDIR=../../build/
+
+CC=gcc
+CFLAGS=-Wall -Werror -Wextra -std=c11
+DATA_IO_C=../data_libs/data_io.c
+DATA_STAT_C=../data_libs/data_stat.c
+DATA_PROCESS_C=../data_module/data_process.c
+MAIN_EXECUTABLE_MODULE=main_executable_module.c
+DECISION_C=../yet_another_decision_module/decision.c
+
+all: Quest_3 clean
+
+Quest_3: main_executable_module.o data_io.o data_stat.o data_process.o decision.o
+	$(CC) $(CFLAGS) main_executable_module.o data_io.o data_stat.o data_process.o decision.o -o $(BUILDDIR)Quest_3
+
+build_with_static: main_executable_module.o data_io.o data_stat.a data_process.o decision.o
+	$(CC) $(CFLAGS) main_executable_module.o data_io.o data_stat.a data_process.o decision.o -o $(BUILDDIR)Quest_5
+
+Quest_6: main_executable_module.o data_io.o data_stat.o data_process.so decision.o
+	$(CC) -shared main_executable_module.o data_io.o data_stat.o data_process.so decision.o -wl, -rpath -o $(BUILDDIR)Quest_6
+
+main_executable_module.o: $(MAIN_EXECUTABLE_MODULE)
+	$(CC) $(CFLAGS) -c $(MAIN_EXECUTABLE_MODULE)
+
+data_io.o: $(DATA_IO_C) $(DATA_STAT_C)
+	$(CC) $(CFLAGS) -c $(DATA_IO_C) $(DATA_STAT_C)
+
+data_stat.o: $(DATA_STAT_C)
+	$(CC) $(CFLAGS) -c $(DATA_STAT_C)
+
+data_process.o: $(DATA_PROCESS_C)
+	$(CC) $(CFLAGS) -c $(DATA_PROCESS_C)
+
+decision.o: $(DECISION_C)
+	$(CC) $(CFLAGS) -c $(DECISION_C)
+
+data_stat.a:
+	ar rc data_stat.a data_stat.o
+
+data_process.so:
+	$(CC) -fPIC -c $(DATA_PROCESS_C)
+	$(CC) -fPIC -c $(DATA_STAT_C)
+	$(CC) -shared -o data_process.so data_process.o data_stat.o
+
+rebuild:
+	clean main_executable_module
+
+clean:
+	rm -f *.o *.a
