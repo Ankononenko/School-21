@@ -1,0 +1,18 @@
+// Copyright 2022 finchren
+#include "s21_string.h"
+
+int main() {
+    int lenght;
+    char string[NMAX];
+    gets(string);
+    lenght = s21_strlen_test(string);
+    printf("%d", lenght);
+    return 0;
+}
+
+int s21_strlen_test(char *string) {
+  char *pointer = string;
+  while (*pointer!='\0')
+    pointer++;
+  return pointer - string;
+}
