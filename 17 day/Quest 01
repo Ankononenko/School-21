@@ -81,10 +81,10 @@ CFLAGS=-Wall -Werror -Wextra -std=c11
 
 all: clean door_struct
 
-door_struct: door_struct.o
-	$(CC) $(CFLAGS) door_struct.o -o $(BUILDDIR)Quest_1
+door_struct: dmanager_module.o
+	$(CC) $(CFLAGS) dmanager_module.o -o $(BUILDDIR)Quest_1
 
-door_struct.o: dmanager_module.c
+dmanager_module.o: dmanager_module.c
 	$(CC) $(CFLAGS) -c dmanager_module.c
 
 rebuild:
