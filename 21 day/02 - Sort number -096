@@ -14,44 +14,54 @@ int main() {
     // 873 % 10 = 3 - third number
     int third = input_number % 10; 
     // Number is negative and there are no zeros
-    if (input_number < 0 && (first != 0 || second != 0 || third != 0)) {
+    if ((input_number < 0) && (first != 0 && second != 0 && third != 0)) {
         first *= -1;
         second *= -1;
         third *= -1;
+        printf("Number is negative and there are no zeros\n");
         printf("-%d%d%d", find_max(first, second, third), find_average(first, second, third), find_min(first, second, third));
     }
-    // Number is negarive and there are any amount of zeros
+    // Number is negative and there are any amount of zeros
     else if (input_number < 0 && (first == 0 || second == 0 || third == 0)) {
+        printf("first - %d second - %d third - %d\n", first, second, third);
         first *= -1;
         second *= -1;
         third *= -1;
-        printf("-");
-        if (first == 0) {
-            printf("%d%d%d", first, find_max(first, second, third), find_min(first, second, third));
+        printf("Number is negative and there are any amount of zeros\n");
+        if (first == 0 && second == 0 && third == 0) {
+            printf("-%d%d%d", first, second, third);
             }
-        if (second == 0) {
-            printf("%d%d%d", second, find_max(first, second, third), find_min(first, second, third));
+        else if (first ==0 && second == 0) {
+            printf("-%d%d%d", first, second, third);
             }
-        if (third == 0) {
-            printf("%d%d%d", third, find_max(first, second, third), find_min(first, second, third));
+        else if (first == 0 && third == 0) {
+            printf("-%d%d%d", first, second, third);
+            }
+        else if (first == 0) {
+            printf("-%d%d%d", first, find_max(first, second, third), find_min(first, second, third) + 1);
+            }
+        else if (second == 0) {
+            printf("-%d%d%d", second, find_max(first, second, third), find_min(first, second, third) + 1);
+            }
+        else if (third == 0) {
+            printf("-%d%d%d", third, find_max(first, second, third), find_min(first, second, third) + 1);
             }
     }
     // Number is positive and there are no zeros
-    else if (input_number > 0 && (first != 0 || second != 0 || third != 0)) {
+    else if (input_number > 0 && (first != 0 && second != 0 && third != 0)) {
+        printf("Number is positive and there are no zeros\n");
         printf("%d%d%d", find_max(first, second, third), find_average(first, second, third), find_min(first, second, third));
     }
     // Number is positive and there are any amount of zeros
     else if (input_number > 0 && (first == 0 || second == 0 || third == 0)) {
-        input_number *= -1;
-        first *= -1;
-        printf("-");
+        printf("Number is positive and there are any amount of zeros");
         if (first == 0) {
             printf("%d%d%d", first, find_max(first, second, third), find_min(first, second, third));
             }
-        if (second == 0) {
+        else if (second == 0) {
             printf("%d%d%d", second, find_max(first, second, third), find_min(first, second, third));
             }
-        if (third == 0) {
+        else if (third == 0) {
             printf("%d%d%d", third, find_max(first, second, third), find_min(first, second, third));
             }
     }
