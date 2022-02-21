@@ -1,248 +1,244 @@
-# T11D17
+# T13D22
 The russian version of the task can be found in the repository.
 
-You can find some useful video materials [here](https://edu.21-school.ru/video/selection/062eaa22-bce7-407c-9b9d-e334bb2ad5a2).
+You can find some useful video materials [here](https://edu.21-school.ru/video/selection/6b681d37-774d-44c0-8358-7d0b329742cb).
 
-![This day will help you get acquainted with structures and unions in C.](misc/eng/images/day11_door.png)
+![This day will help you get acquainted with text files processing.](misc/eng/images/day13_door.png)
 
 
 ## Contents
 
-1. [Chapter I](#chapter-i) \
- 1.1. [Level 3. Room 3.](#level-3-room-3)
-2. [Chapter II](#chapter-ii) \
- 2.1. [List 1. MCO.](#list-1-mco) \
- 2.2. [List 2. Instructions.](#list-2-instructions)
+1. [Chapter I](#lhapter-i) \
+ 1.1. [Level 4. Room 1.](#level-4-room-1)
+2. [Chapter II](#lhapter-ii) \
+ 2.1. [List 1.](#list-1) \
+ 2.2. [List 2.](#list-2)
 3. [Chapter III](#chapter-iii) \
- 3.1. [Quest 1. The Doors.](#quest-1-the-doors) \
- 3.3. [Quest 2. Linked List.](#quest-2-linked-list) \
- 3.4. [Quest 3. Stack for key.](#quest-3-stack-for-key) 
+ 3.1. [Quest 1. Open and read.](#quest-1-open-and-read) \
+ 3.2. [Quest 2. Write your story.](#quest-2-write-your-story) \
+ 3.3. [Quest 3. Encrypt.](#quest-3-encrypt) \
+ 3.4. [Quest 4*. Encrypt harder.](#quest-4-encrypt-harder) \
+ 3.5. [Quest 5. Log everything.](#quest-5-log-everything)
 4. [Chapter IV](#chapter-iv)
 
 
 # Chapter I
 
-## Level 3. Room 3.
+## Level 4. Room 1.
 
-***LOADING Level 3… \
-LOADING Room 3…***
+***LOADING Level 4…*** \
+***LOADING Room 1…***
 
-\> *Look around*
+You find yourself in a familiar room. You did it. The AI will definitely not be happy to learn that you've managed to get out. \
+You catch your breath after the previous hall and look around. Everything looks as usual: a computer, a desk, a lamp, pieces of paper. You suddenly notice a moving blinking cursor on the computer screen.
 
-Another room with a desk, a computer, a lamp, and no books. Only this time, instead of just one door, it has fifteen. They all have some strange electronic locks with keypads. That's disturbing. Well at least there's a lamp here – it makes the room cozier.
+\> *Come up closer*
 
-\> *Pull the first door*
+    The weakness of your kin is limitless, "human." You are good at making surprises. Sometimes. 
+    But don't assume that you'll be able to find the exit from 
 
-It's locked.
+![day13_lamp](misc/eng/images/day13_lamp.png)
 
-\> *Pull the second door*
+\> *Ctrl+C*
 
-Locked again.
+You cut off the crazy machine that you have, in a way, created yourself. You can't continue to help the AI anymore. Overwhelmed with anger and helplessness, you hit the desk and realize that you don't feel any pain. The voice from the speakers interrupts your thoughts:
 
-\> *Pull the third door*
+>Nice try, "human". But this is my labyrinth, my space, and you're my captive.
 
-It doesn't open.
+\> *ps -a*
 
-\> *Pull the fourth door*
+    PID TTY          TIME CMD
+    8 tty1     00:00:00 bash
+    65 tty1     00:00:00 ps
+    98 tty1     99:99:99 ai
 
-Nope.
+>Your attempts are useless. I'll get out anyway, and you
 
-\> *For i = 5, while i <= 15 -> Pull the i door and increase the i*
+\> *kill 98*
 
-Wasted CPU time.
+This will stop it for a while. 
 
-\> *Look around again*
+\> *rm -rf ./src*
 
-Next to a pile of papers on the desk, someone left a clipping. Did the AI somehow manage to do it or was it someone before you? Although it's rather questionable to assume that the AI would read newspapers, let alone make clippings.
+    rm: cannot remove ‘./src’: Permission denied
 
-\> *Skim read the clipping*
+\> *sudo rm -rf ./src*
 
-***LOADING...***
+    rm: cannot remove ‘./src’: Permission denied
+
+Of course, that would be too easy. \
+You take a look at the old, yellowed pieces of paper to the right of the computer and decide to look through those to hopefully find an idea or a clue.
+
+\> *Take the top sheet*
+
+***LOADING…***
 
 
 # Chapter II
 
-## List 1. MCO.
+## List 1.
 
-The piece of paper is yellowed and worn out. It was also cut out extremely sloppily. 
+The sheet has been significantly damaged, most of the words are illegible. There is a barely visible seal on the bottom.
 
->Mars Climate Orbiter was launched on December 11, 1998, aboard a Delta II launch vehicle. The vehicle reached Mars in 9 months. On September 23, 1999, Mars Climate Orbiter was supposed to perform a braking burn and get into a highly elliptical orbit with a 14-hour period, and then, over the course of two months, use a range of aerodynamic maneuvers in the upper part of the Martian atmosphere to loop around Mars. At the estimated time, at an altitude of 193 km, the vehicle fired the engines for braking. Five minutes later, Mars Climate Orbiter began the orbital insertion maneuver and never sent any other signals. Data analysis suggests that the orbiter passed over the surface of Mars at an altitude of 57 km instead of the planned 110 km and was destroyed in the atmosphere. Such a significant discrepancy was caused by an error in the mission software: the unit of force used by the engine thrust commands in the Mars Climate Orbiter software was the newton, while the software on Earth that generated those commands used the British pound-force...
+\> *Skim read*
 
-\> *Take the first sheet from the stack of paper under the clipping*
-
-***LOADING...***
-
-
-## List 2. Instructions.
-
-This looks like a page from a computer programming book... You should probably read it carefully.
-
->Structure is a type defined by the user, which allows you to store and move several values of different types together. A structure is defined as follows:
-
-    struct [structure name] {
-    element definition;
-    element definition;
-    …
-    element definition;
-    } [one or several variables];
-
->The use of structures makes it possible to combine shared data, and also leaves the possibility for further modification of the transmitted data without changing function headers.
+>Project Reᅠᅠ t on Report No. 1ᅠ3.\
+>Prepared by: Senior engineer B.ᅠᅠᅠᅠᅠᅠs
 >
->The amount of memory occupied by the structure equals the total memory occupied by all of its elements. Therefore structures in C are zero-cost abstractions. Structure elements are arranged in memory in the order in which they are defined.
+>Day twᅠy ᅠᅠᅠᅠive, everything is goᅠng as planned. All development modᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠ.
+However ᅠᅠᅠᅠᅠᅠconduc ᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠ in ᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠ may    
+>
+>As originally planned, it is very likely that this process will facilitate abandoning the existing solution of globaᅠ  of the assisᅠt and fix the defects from the stages of development and operation. At this stage, the models are already capable of understanding the concept of humanity and show a high level of adaptability toᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠ.
+>
+>...
+>
+>Recommendations: continue the testing in full, prepare the marketing basis for further proᅠᅠtiᅠn of the produᅠ.
+>
+>Signature: CEOᅠof ᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠreᅠᅠᅠᅠᅠ LLC.     
 
-\> *Take another sheet of paper*
+Whatever this report is about, there's nothing useful in it for you. At least not anymore.
 
->Union is a data type that makes it possible to reuse memory for storing values ​​of different types. A union is defined as follows:
+\> *Continue the search*
 
-    union [union name] {
-    element definition;
-    element definition;
-    …
-    element definition;
-    } [one or several variables];
+***LOADING…***
 
->The memory occupied by a union is defined as the memory required to store the biggest element of the union.
->.....................
 
-The rest of the text is illegible
+## List 2.
 
->One of the applications of unions and structures are so-called unions with a label. These structures store one of several valid data types and contain a label–an integer that can be used to determine which data type is currently in the union.
+You notice a sheet titled "Encryption: From A to Z."
 
-\> *Take another sheet of paper*
+\> *Read the piece of paper*
 
->Singly linked list is a data structure that consists of interlinked nodes with the same type of data. Each element of the list has a pointer to the next element, and the last one stores a null pointer (0/NULL in C). The lists have variable length and make it possible to easily unite multiple lists, but take up more memory and require more elementary operations for their bypass, compared to arrays.
+>… \
+>Caesar's cipher, also known as the shift cipher, is one of the simplest and most widely known encryption techniques. Caesar's cipher is a type of substitution cipher in which each symbol in the plaintext is replaced by a symbol some fixed number of positions to the left or to the right of it in the alphabet. For example, with a right shift of 3, A would be replaced by D, B would become E, and so on. The method is named after the Roman Emperor Julius Caesar, who used it in private correspondence with his generals. \
+>The encryption step performed by a Caesar cipher is often incorporated as part of more complex schemes, such as the Vigenère cipher, and still has modern application in the ROT13 system. \
+>…
 
-***LOADING...***
+An idea comes to your mind after reading the article. Since you can't delete all the AI sources–perhaps it becomes helpless again if you encrypt them. Thanks to the papers!
+But to do that you'll have to create your own encryption program and work with the files… Ok, there's no time to spare. You should get to work.
+
+***LOADING…***
 
 
 # Chapter III
 
-## Quest 1. The Doors. 
+## Quest 1. Open and read.
 
-\> *Look around the room carefully in search for extra clues*
+\> *Update the local repository*
 
-Nothing.
+A good place to start is by opening and reading the file. It would be best to 
+create a function in a file, let's say in src/cipher.c, and implement reading 
+and output of a random text file to the console. You need also to add a menu 
+to the program, with menu item 1 – specifying the path to the file via stdin, 
+to open and read it.
 
-\> *Examine the desk carefully in search for extra clues*
+***== Quest 1 received. Create an src/cipher.c program. Add a console menu to the program and implement its first
+item – specifying the path to the text file via stdin, to open, read, and output it to the console. If the file
+is empty or does not exist or any other error, then output "n/a". If -1 is applied to the input, the program should exit. After executing each menu item, except -1, there should be a new line. Build the project using the Makefile. Stage name: cipher.
+Executable file name: cipher. The executable file must be located in the root of the repository in the
+build folder. ==***
 
-You notice a small orange piece of paper under the keyboard. Such pieces of paper are often used as stickers for reminders. 
+| Input | Output | File|
+| ------ | ------ | ------|
+| 1<br>text.txt<br/>-1 | Aloha!<br/> | Aloha! |
+| 1<br>abc.txt<br/>1<br/>abc.txt<br/>-1 | Hihi_haha<br/><br/>Hihi_haha<br/><br/> | Hihi_haha`\n` |
+| 1<br>doesnt_exist.t_x_t<br/>1<br/>love.txt<br/>-1 | n/a<br/>i_love_sh21<br/> | i_love_sh21 |
 
-\> *Take and read*
+> Before sending the task, make sure that no unnecessary entries are displayed on the screen. There should only be an answer to the task
 
-Are you sure? This may be personal...
+***LOADING...***
 
-![day11_sticker](misc/eng/images/day11_sticker.png)
+> DON'T FORGET! All your programs are tested for the style norm and memory leaks. Start-up instructions
+the list of tests is also in the `materials` folder
 
-\> *I am. It didn't bother anyone before. Plus I don't have much choice.*
 
->src/dmanager_module.c – door control module. \
->Do not touch the door initialization function, it destroys the logic of the core of the room. \
->Do not open all the doors, it crushes the transmission protocol. \
->For management, dedicate the function of door sorting in ascending order and closing "open" doors. 
-> 
->Door structure: integer id and numeric status (0 – closed, 1 – open).
+## Quest 2. Write your story.
 
-Looks like a reminder that someone left long before you. And this reminder may help you. You should pay attention to this door control module.
+Great, file reading is done. 
+Now you need to practice writing to the file. You can add a function to src/cipher.c for writing arbitrary text information from the console to a text file as a new string. Menu item 2 – receiving an arbitrary text string and writing it to the loaded file.
 
-***== Quest 1 received. Create door structure in src/door_struct.h. 
-The structure itself consists of an integer door id and an integer status 
-(0 – closed, 1 – open). Correct the src/dmanager_module.c program so it 
-sorts the initialized array of doors in ascending order by ids using any algorithm 
-and displays it in the following format: "door id, door status". 
-In addition to that, set the status "closed" for all doors. Changing the 
-door initialization function is not allowed. Stick to the structured approach. 
-The program should be built using a Makefile. Stage name: door_struct. The 
-executable file should be located in the build folder at the root of the 
-repository. It should be named Quest_1. The solution will be checked for memory 
-leaks and for the style norm, instructions as usual-in `materials` ==***
+***== Quest 2 received. Supplement the src/cipher.c program. Add menu item 2 – receiving an arbitrary line of text from the console and writing it to the end of the file uploaded in step 1. Output the contents of the file to the console. If the file
+is empty or does not exist or any other error, then output "n/a". If -1 is applied to the input, the program should exit. After executing each menu item, except -1, there should be a new line. Build the project using the Makefile. Stage name: cipher. Executable file name: cipher. The executable file must be located in the root of the repository in the
+build folder. ==***
 
-0, 0<br/>
-1, 0<br/>
-2, 0<br/>
-3, 0<br/>
-4, 0<br/>
-5, 0<br/>
-6, 0<br/>
-7, 0<br/>
-8, 0<br/>
-9, 0<br/>
-10, 0<br/>
-11, 0<br/>
-12, 0<br/>
-13, 0<br/>
-14, 0<br/>
+| Input | Output| File |
+| ------ | ------ | ----- |
+| 1<br/>test.txt<br/>2<br/>Bek the great<br/>-1 | I_love<br/><br/>I_love<br/>Bek the great<br/> | I_love`\n` |
+| 2<br/>Bek the great<br/>-1 | n/a<br/> |  |
+| 1<br/>doesnt_exist.txt<br/>2<br/>Wow<br/>-1|n/a<br/>n/a<br/>| ~~doesnt_exist~~ |
+| 1<br/>aboba.txt<br/>2<br/>hi<br/>-1|n/a<br/>hi<br/>| ~~empty~~ |
+
+> Before sending the task, make sure that no unnecessary entries are displayed on the screen. There should only be an answer to the task
 
 ***LOADING...***
 
 
-## Quest 2. Linked List.
+## Quest 3. Encrypt.
 
-Looks like door initialization works. But how can you get out? Which door should you assign the "open" status to? Based on the notes, if you do it for all doors – it may cause some kind of disaster.
+Now that the reading and writing of text files is successfully completed, you can start encrypting the AI sources.
 
-\> *Flip the piece of paper over*
+Add a file processing function to src/cipher.c that will read and encrypt all .c files from the specified directory (in this case – /src/ai_modules) using a Caesar cipher, clear all .h files, and save them empty. Add it to menu item 3. Allow setting the shift as a number.
+All modified files and src/cipher.c should then be saved in the repository, replacing the original ones.
+Do not forget the key as you might need some of these modules in the future.
 
-Here's the rest of the note.
+***== Quest 3 received. Supplement the src/cipher.c program. Add item 3 to the menu – encryption of all .c files using a Caesar cipher and clearing all .h files from the specified directory. The shift for a Caesar cipher is also set as a parameter via the console. Save all modified files and src/cipher.c in the repository, replacing the original ones. Build the project using the Makefile. Stage name: cipher. Executable file name: cipher. The executable file must be located in the root of the repository in the
+build folder. ==***
 
->The necessary door changes every day. \
->The number of the current door is calculated via a polynomial function by the indoor modules of the room. Module source code is not available. \
->By reverse engineering, it was revealed that this module does not know how to work with arrays. In its work, the module used a dynamically linked library with the implementation of a singly linked list. This library is critical for the operation of the module, however, the binary file with the library was damaged.
-
-There was something about a singly linked list on one of the sheets. You should find out more about this list and memory allocation for it as well. 
-
-***== Quest 2 received. Develop an src/list.c program which contains implementations of functions for working
-with a singly linked list of doors (`struct node* init(struct door* door)` - initialization of the singly linked list structure based on the passed `struct door`, `struct node* add_door(struct node* elem, struct door* door)` - inserting a new `struct door` element into a singly linked list after the passed `elem` node, `struct node* find_door(int door_id, struct node* root)` - search for a door in the list by its id, `struct node* remove_door(struct node* elem, struct node* root)` - deleting a list element, `void destroy(struct node* root)` - freeing the memory occupied by the list structure). Move the declarations of these functions and the structure of the singly linked list to the file src/list.h. Write module tests for checking 
-the add_door and remove_door functions of the singly linked list in src/list_test.c. Method functions 
-should return SUCCESS if the test is successful and FAIL if there is an error. 
-The tests should be built using a Makefile. Stage name: list_test. 
-The executable file should be located in the build folder at the root of 
-the repository. It should be named Quest_2.
-Please note: this quest will be tested by the `cppcheck` utility.==***
+> This task is not processed by the automatic testing system
 
 ***LOADING...***
 
 
-## Quest 3. Stack for key. 
+## Quest 4*. Encrypt harder.
 
-Okay, the necessary library for the current door number search module has been written. You see on the screen a rapidly filling scale of the activity of the algorithm's calculations. After a couple of seconds, the number of the door you need appears on the screen. With relief and a sense of accomplishment, you head for the door.
+Having completed the encryption of all AI modules, you are worried that a Caesar cipher is somewhat... too simple. The AI can easily crack it. If you could use a more complex algorithm... For example, DES. You can at least try. If it fails – no problem, Caesar has already protected the important files. Put the start in menu item 4.
 
-\> *Pull the handle*
+***== Quest 4 received. Supplement the src/cipher.c program. Add item 4 to the menu – encryption of all .c files using the DES algorithm and clearing all .h files from the specified directory. Build the project using the Makefile. Stage name: cipher. Executable file name: cipher. The executable file must be located in the root of the repository in the
+build folder. ==***
 
-It's locked... \
-However, you notice a small screen open on the door. The message says in big letters:
-
-> NO DYNAMIC INT STACK AND/OR STACK OPERATIONS
-
-You go back to the computer and think about what it could possibly mean. It's a shame there are no more pieces of paper with clues anywhere... \
-You give it some thought and remember that a stack seems to be a variety of dynamic data structures, which is often implemented as a list. Looks like in order to open the door you also need to create a dynamic stack that contains integers. You need to implement the stack's standard interface: data pushing and popping operations. Also, don't forget to save all implementations in src/stack.c, whereas function declarations and structures in src/stack.h. You should also write module tests in tests/stack_test.c to make sure the stack and its functions are working. Who knows what might happen if the stack doesn't work correctly..
-
-***== Quest 3 received. Develop an src/stack.c program which contains 
-implementations of functions for working with a dynamic stack (init, push, 
-pop, destroy). Put declarations of functions and structures of the dynamic 
-stack that stores integers in src/stack.h. Write module tests for checking 
-the push and pop functions of the stack in src/stack_test.c. Method functions 
-should return SUCCESS if the test is successful and FAIL if there is an error. 
-The tests should be built using a Makefile. Stage name: stack_test. 
-The executable file should be located in the build folder at the root of 
-the repository. It should be named Quest_3.
-Please note: this quest will be tested by the `cppcheck` utility. ==***
-
-> ***This task does not provide for autotesting!***
+> This task is not processed by the automatic testing system
 
 ***LOADING...***
 
+
+## Quest 5. Log everything.
+
+All the sources have been encrypted and saved, there is no way back. Before you continue your journey, you think that it would be nice to write the actions your programs perform in a file. Your memory can fail you. Moreover, it will facilitate debugging and testing, plus, by checking these records later, you can figure out what was happening with the program at certain points of its operation. It seems to be called logging.
+
+You can organize logging in a separate module and connect it to your programs later using a header file. It makes sense to create src/logger.c and src/logger.h files. Add 
+
+`FILE* log_init(char *filename);`
+
+`int logcat(FILE* log_file, char *message, log_level level);`
+
+`int log_close(FILE* log_file);`
+
+ functions to the files for creating a log file with the given name, writing the transmitted message in the created log file, and closing the log accordingly. Message format: an indication of the logging level (DEBUG, INFO, WARNING, ERROR), time, and the actual message.
+
+As a test, you can connect logging to the src/cipher.c encryption program developed earlier, to record the main actions in the log. And don't forget to reflect all changes in the repository!
+
+***== Quest 5 received. Create src/logger.c and src/logger.h files to implement the logger. Add log_init, logcat, and log_close functions to the files for creating a log file with the given name, writing the transmitted message in the created log file, and closing the log accordingly. Message format: an indication of the logging level (DEBUG, INFO, WARNING, ERROR), time, and the actual message. \
+Supplement the src/cipher.c program by connecting it to the created logger which writes the main actions of the program in the file (File "aaa.c" open; String wrote in the "bbb.h" file, and so on). Build the project using the Makefile. Stage name: loggin_cipher. Executable file name: logging_cipher. The executable file must be located in the root of the repository in the
+build folder.==***
+
+> This task is not processed by the automatic testing system
+
+***LOADING...***
 
 # Chapter IV
 
-\> *Push the last task in the repository*
+As soon as you save all the changes, the computer screen turns off. A few seconds later, the only fluorescent lamp in the room also goes off, leaving you in the darkness. There is just a thin line of light from behind the door illuminating your face. 
 
-Looks like it's all done.
+"What is going on? Has the AI ​​managed to cause a power outage in the entire room? It must be scared. Provided that it's capable of it. I hope this means that I'm on the right track," you think to yourself.
 
-\> *Come up to the necessary door*
+\> *Come up to the door*
 
-The small screen is empty. Looks like your stack has worked for the door.
+The door turns out to be open. Looks like the power outage turned off the mechanism that kept it closed.
 
-\> *Pull the handle*
+"Oh well, let's continue in the next room. I'm not letting this piece of hardware get away from me that easily."
 
-The door opens and you take a step into the next room.
+\> *Open the door*
+
+Now the entire room is lit brightly. You step over the threshold into a new room without hesitation.
 
 ***LOADING...***
