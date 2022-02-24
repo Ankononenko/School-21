@@ -2,32 +2,35 @@
 #include <stdio.h>
 
 int main() {
-    int n, counter_for_output;
-    if (scanf("%d", &n)) {
-        if (n > 0) {
-            int array_of_numbers[n];
-            counter_for_output = n;
-            for (int i = 0; i < n; i++) {
-                if (!scanf("%d", &array_of_numbers[i])) {
+    int kArrayLenght, counter_for_output, temp;
+    if (scanf("%d", &kArrayLenght)) {
+        if (kArrayLenght > 0) {
+            int array_of_numbers[kArrayLenght];
+            counter_for_output = kArrayLenght;
+            for (int i = 0; i < kArrayLenght; i++) {
+                if (!scanf("%d", &temp)) {
                     printf("n/a");
                     return 1;
-                }
+                } else if (temp == -1) {
+                    kArrayLenght = i;
+                } else {
+                    array_of_numbers[i] = temp;
+                    }
             }
             printf("Array of numbers after input:\n");
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i < kArrayLenght; i++) {
                 printf("%d", array_of_numbers[i]);
-                if (i < n - 1) {
+                if (i < kArrayLenght - 1) {
                     printf(" ");
-                }
-                else if (i == n - 1) {
+                } else if (i == kArrayLenght - 1) {
                     printf("\n");
                 }
             }
             printf("Array of numbers multiplied:\n");
-            for (int j = 0; j < n; j++) {
+            for (int j = 0; j < kArrayLenght; j++) {
                 printf("%d", array_of_numbers[j] * counter_for_output);
                 counter_for_output--;
-                if (j < n - 1) {
+                if (j < kArrayLenght - 1) {
                     printf(" ");
                 }
             }
