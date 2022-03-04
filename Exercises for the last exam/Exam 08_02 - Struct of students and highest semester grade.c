@@ -79,7 +79,7 @@ int input_names_and_grades(struct Students* array, int number_of_students) {
             return_case = 1;
             break;
         }
-        if (!scanf("%d", &array[i].semester_grade) || array[i].semester_grade < 0) {
+        if (!scanf("%d%c", &array[i].semester_grade, &endline) || array[i].semester_grade < 0 || endline != '\n') {
             return_case = 1;
             break;
         }
