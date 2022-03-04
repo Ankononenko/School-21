@@ -19,7 +19,7 @@ int main() {
 
 int factorial(int number) {
     int number_to_return = 1;
-    for (int i = 0; i <= number; i++) {
+    for (int i = 1; i <= number; i++) {
         number_to_return *= i;
     }
     return number_to_return;
