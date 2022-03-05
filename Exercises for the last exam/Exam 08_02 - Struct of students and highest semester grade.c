@@ -57,9 +57,7 @@ void output_names_and_grades_of_top_students(struct Students* array, int number_
 int number_of_top_students, int maximum_grade_value) {
     for (int i = 0; i < number_of_students; i++) {
         if (array[i].semester_grade == maximum_grade_value) {
-            printf("%s ", array[i].first_name);
-            printf("%s ", array[i].last_name);
-            printf("%d", array[i].semester_grade);
+            printf("%s %s %d", array[i].first_name, array[i].last_name, array[i].semester_grade);
             if (i < number_of_top_students) {
                 printf(", ");
             }
@@ -79,7 +77,8 @@ int input_names_and_grades(struct Students* array, int number_of_students) {
             return_case = 1;
             break;
         }
-        if (!scanf("%d%c", &array[i].semester_grade, &endline) || array[i].semester_grade < 0 || endline != '\n') {
+        if (!scanf("%d%c", &array[i].semester_grade, &endline) ||
+        array[i].semester_grade < 0 || endline != '\n') {
             return_case = 1;
             break;
         }
