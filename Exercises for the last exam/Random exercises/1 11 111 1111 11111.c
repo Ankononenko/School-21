@@ -13,7 +13,7 @@ The Sum is : 12345
 + 3. Work around invalid input
 + 4. Test
 + 5. Cpplint test
-6. Add and push
++ 6. Add and push
 */
 
 #include <stdio.h>
