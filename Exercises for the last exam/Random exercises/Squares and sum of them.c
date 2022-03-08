@@ -13,8 +13,8 @@ The Sum of Square Natural Number upto 5 terms = 55
 + 2.5 Display the sum
 + 3. Work around invalid input
 + 4. Test
-5. Cpplint test
-6. Add and push
++ 5. Cpplint test
++ 6. Add and push
 */
 
 #include <stdio.h>
