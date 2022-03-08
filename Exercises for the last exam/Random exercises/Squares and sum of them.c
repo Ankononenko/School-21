@@ -25,7 +25,7 @@ int main() {
     printf("Enter a number of terms to display and count the sum of:\n");
     if (scanf("%d", &number)) {
         endline = getchar();
-        if (endline == ' ' || endline == '\n') {
+        if ((number > 0) && ((endline == ' ') || (endline == '\n'))) {
             printf("The square natural upto 5 terms are:");
             for (int i = 1; i <= number; i++) {
                 square = i * i;
