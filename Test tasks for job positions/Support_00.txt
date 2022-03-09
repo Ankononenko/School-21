@@ -1,0 +1,96 @@
+Несколько просьб:
+
+- Отвечайте максимально подробно.
+- Перед тем, как писать ответ, скопируйте вопрос на который отвечаете.
+
+Первая часть:
+
+1. What makes you suitable for the job you apply at?
+
+I have extensive experience in customer support - 3 years of work at various positions:
+First line support;
+Second line support;
+Quality assurance manager;
+Support supervisor.
+Thanks to that experience I have a few vantage points on the customer care process and I hope that I’ll bring a lot of value to your team. 
+Aside from my experience in Russian-speaking customer support I am comfortable in all situations that require full comprehension of spoken or written English. I have basic understanding of SQL, Windows command line and a few programming languages - C, Kotlin, Python.
+
+2. How do you see your professional experience in the near future?
+
+I would like to try myself in the field of English-speaking customer support. Learning the language so far has been a hobby of mine and I’m thrilled to see where it takes me in the future. It would also benefit me in the long run if I could extend my technical knowledge - so far it is mostly self-taught with little real-life practical experience.
+
+3. How will you test a chair?
+
+I would test the chair based on the set of technical requirements given by the client, but if I had no strict technical task, I would do the following: First I would examine it visually to see if the construction is in ok-condition, then I would test if all the adjustment functions work alright (like the function for adjusting the angle of the back of the chair). After that I would give the chair a little push with my hands to check if it can handle a bit of weight. If the chair has passed all the tests prior to this, comes the final one - I would try to carefully sit on the chair, shift my weight from side-to-side and take it for a little spin. If we have a couple of chairs in reserve to continue our tests, we can add more weight, more spins per second and more side-to-side movement to see what kind of stress the chair can handle.
+ 
+4. If your duty was to organize the technical support system from scratch in the company with 30 business clients, how would you make it happen?
+
+My first step would be to build a good knowledge base, so a support engineer could easily prepare	for the first working day. I would make sure that the knowledge base was easy enough to navigate, so even during a call one could find all the necessary information and understand it with ease.
+Next step is to calculate how many team members we need to fit the needs of the clients based on the client's working schedule, average number of customer-to-customer support interactions and number of tickets that a single person can solve per timeframe. Apart from that we need to think - how many staff members we need to support the team. HR manager, accountant, team lead/supervisor, system administrator, office administrator and cleaning staff (if we are working in the office).
+Acquire an HR manager and an accountant to find the team to fit our needs. Together with the HR manager sketch a skill set that we need for each position and look for candidates - go through the flow of resumes, choose the candidates that fit our needs the most, interview them, test their abilities, teach the team to work based on the knowledge base with set of rules and regulations that we have built earlier. The learning process can be self-taught with the help of a mentor (team lead or supervisor) who has an extensive experience in the field of tech support so the team could rely on them and be able to cope with the most difficult of situations.
+Test the team to see who passed the education period.
+Regularly perform quality control - every week randomly choose 10 tickets per engineer and check them to see if the customer's problem was resolved and if all guidelines were met. Give feedback based on the reviews of the tickets so we can improve our work.
+Regularly review KPI of each team member to give feedback based on the employee’s performance. Reward the top performers and help the staff that are struggling to meet the criterias. 
+Work with customer satisfaction. Regularly gather and review customer feedback to find any blind spots and work to negate them.
+Improve and extend knowledge base by taking into account the feedback of employees. Train them if needed. Improvement of knowledge base can be done by tech support engineers. They work with the database and probably they know how to build it to fit their needs the most. Training can be done on a peer-to-peer basis too. More experienced employees act as teachers. 
+
+5. What is a service in Windows OS?
+
+A service is software that performs automated tasks, responds to hardware events, or listens for data requests from other software.
+Windows Services are a core component of the Microsoft Windows operating system and enable the creation and management of long-running processes.
+Unlike regular software that is launched by the end user and only runs when the user is logged on, Windows Services can start without user intervention and may continue to run long after the user has logged off. The services run in the background and will usually kick in when the machine is booted. 
+Windows Services are managed via the Services Control Manager panel. The panel shows a list of services and for each, name, description, status (running, stopped or paused) and the type of service. 
+
+
+
+
+6. Which programs can be run as services?
+
+As I know you can create a Windows service with any program using RunAsService tool, NSSM tool or SrvStart. These are just a few programs that can be used to run any program as a background service in Windows
+
+7. Do you have any experience with the below processes:
+Managing a Windows Server?
+
+I don’t have any experience managing a Windows Server.
+
+Troubleshooting Network issues?
+
+I have experience troubleshooting only my own network issues on my personal computer and a few times when I worked as an internet technician for a local internet service provider. As a technician my responsibility was to provide a customer with internet access - undertake cabling tasks, such as testing, laying, identifying faults, and attend to maintain them promptly. Part of the job was to set up a router or a switch and to connect a customer's computer to the internet. In some cases there were routine problems to solve like disabled ethernet network adapter, outdated drivers, etc. 
+
+Working with SQL, setting up MySQL server?
+
+I have completed a short online course on SQL basics over a year ago but the skill didn’t come handy. I haven’t had any practice since and the skill is almost gone, but I can write an SQL query with the help of Google.	
+
+Working with any REST API?
+
+No experience working with REST API.
+
+8. Опишите ваш уровень владения ПК. Любите ли вы работать с новыми приложениями? Насколько быстро осваиваете новые приложение?
+
+Продвинутый пользователь ПК, как бы это избито не звучало - могу переустановить ОС, драйвера, что-то починить, поменять какие-то комплектующие или разобраться почему и что не работает. Получил много подобного опыта, когда работал монтажником у интернет-провайдера. Имею начальные навыки программирования на нескольких языках - C, Kotlin, Python. Начальные навыки - в состоянии решать простые задачи и некоторые задачи средней сложности на LeetCode и подобных платформах. Работал как на Windows таки и на MacOs. Быстро разбираюсь в работе приложений, программ. Если что-то не понимаю сам, могу быстро нагуглить, разобраться.
+
+
+9. Как вы относитесь к математическим расчетам? Насколько легко вам это дается?
+
+При наличии времени могу разобраться во многом. Время от времени решаю задачки по программированию, которые так или иначе связаны с математикой. Среди последних биномиальный коэффициент - https://github.com/163114/School/blob/main/Exercises%20for%20the%20last%20exam/Exam%2004_01_Binomial_coefficient.c  и игра Пинг-понг MS DOS на СИ https://github.com/163114/School/blob/main/06%20day/03%20-%20Pong%20final Получаю удовольствие в процессе решения задач. За счет этого, вероятно, математические расчеты даются мне легче, чем большинству, но не хочу переоценивать себя.
+
+Вторая часть:
+
+1. Насколько хорошо вы ориентируетесь в стенах текста, когда необходимо среди кучи информации выловить что-то непосредственно нужное?
+
+Умею читать код на нескольких языках программирования, документацию, технические книги и MANы в терминале, долгое время заучивал регламенты поддержки на прошлой работе и усваивал большое количество другой информации. Думаю, что хорошо ориентируюсь в стенах текста и могу найти нужное с большой вероятностью.
+
+2. Дайте своё предположение, в чём может быть проблема в следующем кейсе:
+У клиента ошибка в логе нашего приложения:
+
+2017-Oct-25 07:33:33.864741 | 0x00005190 | Error | | 'Conf1/585163': open copy of ['585162' #683736 buy 1 EURUSD] / could not open, [585163, EURUSD] insufficient margin [Threadpool:Call->OpenAction]
+
+Количество средств на приобретение актива оказалось недостаточным. Необходимо пополнить баланс аккаунта.
+
+3. Некоторые наши продукты для работы требуют .NET и SQL сервер. Какой ответ вы дадите клиенту, если он задает вопрос: “Why do I need to install the third party products on my server?” Дайте ответ на английском языке.
+
+Good evening!
+
+NET is a cross-platform implementation for running websites, services, and console apps on Windows, Linux, and macOS. .NET is open source on GitHub ( https://github.com/dotnet ). You need .NET installed to run applications that were created using it. It's already included in many versions of Windows - it’s perfectly safe to use.
+
+SQL Server is a relational database management system (RDBMS) developed by Microsoft. It is primarily designed and developed to compete with MySQL and Oracle database. SQL Server is set up to be used by multiple users or applications so they can share the same data.
