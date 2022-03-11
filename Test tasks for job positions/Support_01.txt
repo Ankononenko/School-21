@@ -1,0 +1,86 @@
+2.1. Создай Google-таблицу, в которую каждый день будет автоматически добавляться информация о температуре по Цельсию возле Исаакиевского собора в Санкт-Петербурге *
+Приложи сюда ссылку на эту Google-таблицу
+Подсказка: выполнить задачу можно с помощью сервиса IFTTT.com
+
+https://docs.google.com/spreadsheets/d/1doNo89ozLqNaW7LEfgvCwHOm6jZiOSpQUoQY2hR-C1E/edit?usp=sharing
+
+16
+2.2. Посчитай наиболее эффективную кардиозону для жиросжигания у пользователя 35 лет с пульсом в покое 74 удара в минуту *
+130-163
+
+17
+2.3. Опиши, как именно ты вычислил(а) границы кардиозоны в предыдущем задании *
+
+По Формулe Карвонена:
+Нижний предел целевой зоны = y+(220-x-y)*0.5
+Верхний предел целевой зоны = y+(220-x-y)*0.8
+
+Где: x — возраст, y — ЧСС в покое.
+
+18
+2.4. Пользователи часто присылают в саппорт логи из приложения, не добавляя к ним описание проблемы.
+1. Почему это плохо?
+2. Как доказать, что это плохо?
+3. Что можно сделать, чтобы стало хорошо? *
+Если ты не считаешь, что это плохо, — расскажи, почему ты так думаешь
+
+1. В некоторых случаях даже опытный агент поддержки не может точно определить проблему пользователя. Чтобы точно быть уверенным что именно случилось у человека, нужно будет сделать дозапрос информации, что приведет к лишней активности и увеличит время обработки тикета.
+2. Сообщить в памятке при составлении обращения информацию о том, что при отправке логов, нужно кратко описать суть проблемы, чтобы мы могли максимально быстро её решить и не запрашивали этой информации дополнительно.
+3. Как вариант, форму составления обращения в поддержку для этой ситуации можно сделать в два обязательных для заполнения поля. Первое поле - описание проблемы, второе поле - логи.
+
+19
+2.5. Пользователи часто спрашивают, как мы обеспечиваем безопасность их данных. Ты считаешь, что пора написать об этом статью и выложить ее в справочный центр. Сформулируй задачу для человека, который будет писать эту статью. *
+У задачи должно быть название и описание. Хорошо сформулированная задача — это такая задача, после прочтения которой исполнителю не нужно задавать тебе дополнительные вопросы.
+
+Название: Написать статью в Хелпцентр об обеспечении безопасности данных.
+
+Описание: Пользователи часто спрашивают в обращениях о том, как мы обеспечиваем безопасность их данных. В справочном центре требуется написать эту статью.
+В самой статье нужно подробно и понятно для обычного пользователя, не подкованного технически, описать следующее: 
+1. Как обечпечивается шифрование данных (HTTPS );
+2. При выявлении угроз, как мы информируем об этом пользователя (предупреждения системы безопасности при признаках взлома - смена почты, телефона, пароля, смена юзер-агента);
+3. Управление данными в аккаунте - двухфакторная аутентификация, другие системы защиты смены пользовательских данных;
+4. Советы по безопасности для пользователей - общие советы, которые могут пользователю помочь сохранить свои данные в безопасности. 
+
+Дополнительно нужно добавить ссылки на статью на тех страницах, где у пользователя может возникнуть подобный вопрос, чтобы её можно было просто найти. Например, на странице указания персональных данных (ФИО, телефон, почта, данные о здоровье).
+
+20
+2.6. Выбери любое приложение, которым ты сам(а) пользуешься и которое хорошо тебе знакомо. Напиши о нем небольшую обучающую статью на английском языке — Getting Started Guide. Она должна отвечать на вопрос начинающего пользователя: "I've just started using this app, how can I get the most out of it?" *
+Объем статьи: 300—500 слов. Не забудь написать, о каком приложении рассказываешь :)
+
+The app that I'm going to write a "Getting Started Guide" for is "Kanji Study" application for Android.
+
+The main goal of this application is to teach a user to read and write Japanese hieroglyphs (kanji) . It also contains two Japanese syllabary writing systems (kana - hiragana and katakana).
+
+It's difficult to navigate and it has a ton of hidden features. In this guide I'm going to talk about the important features of the application that are the most useful.
+
+When you open the app and scroll through the intro guide, you will find yourself in the main screen of the application. On the top left corner you can find a dropdown menu. 
+
+Tap on three horizontal lines on the top left corner. In this menu you can find sets of kana and kanji. These are what you should start with, if you haven't learned any Japanese before. First goes the kana set and then sets of kanji starting with elementary all the way up to the most advanced sets.
+
+At this point you should choose what you want to study and tap on that item in the menu. I guess that you are a beginner, so we are going to choose the kana option. 
+
+After choosing "kana" you can see the list of all hiragana or katakana characters displayed on your screen. On the bottom left corner there is an icon of two arrows - the first pointing up and the second pointing down. If you tap on this icon, you will change the kana to study.
+
+Select one and tap the "Study" button on the bottom right corner of the screen. Here is the most interesting part of the menu. You can choose the mode to study the Japanese alphabet.
+
+The first option is "Flashcard study". If you choose that option, you'll see a set of flashcards. One side of a flashcard is a character to memorize. If you tap the flashcard one time you will see it's other side. On the other side is displayed the syllable and example of it's usage. 
+
+Don't close that screen just yet - there are five options at the bottom that we're going to investigate. We're going to talk about them from left to right. These icons are available while studying both - kana and kanji.
+
+The leftmost icon will let you see the general information about the character. 
+
+The second icon lets you use "Challenge mode". Here you can try to write the character in two modes. The first mode allows you to learn to write the character by tracing it and the second one is more advanced - you'll draw the character by memory, without any help. 
+
+Icon in the middle adds the character to your favorites list. If you have trouble memorizing a character you can use that option to save it for later.
+
+The forth icon lets you see the correct way to write kana. The app displays it step by step. 
+
+The last icon when tapped plays the correct pronunciation of the character you're currently memorizing.
+
+The second option after you press "Study" is "Multiple choice quizzes". Here you can practice how you memorized the cards during "Flashcard study". The app displays the characters one by one. You should type the correct answer for the kana character that is displayed on the screen of your phone. The time is limited so you should hurry up. After the set is finished you'll see how well you did. The app displays your score.
+
+The last option is the most interesting and difficult one - "Writing challenges". Here you get a chance to test your knowledge by writing down the kana by memory.
+
+When you finish memorizing kana you can proceed to sets of kanji. The idea is the same - you memorize the kanji by going through the cards over and over again and then check how you memorized them.
+
+The key to success is repetition. The more you practice, the more you will know.
