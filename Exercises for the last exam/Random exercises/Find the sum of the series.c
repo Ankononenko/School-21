@@ -12,7 +12,7 @@ value of x = 2.000000
 + 1. Take the input of x and number of terms
 + 2. Write factorial function
 + 2.1 Write pow function
-2.3 Write function for counting the sum
++ 2.3 Write function for counting the sum
 + 2.5 Display the sum, number of term and value of x
 3. Work around invalid input
 4. Test
@@ -53,21 +53,14 @@ void print_sum(float sum) {
 }
 
 float count_sum(float x, float number_of_terms) {
-    // [ 1-X^2/2!+X^4/4!- .........]
-    float sum, temp, multiplier = 2.0;
-    temp = 1.0 - power(x, multiplier) / factorial(2);
-    if (number_of_terms == 1) {
-        sum = temp;
-    } else if (number_of_terms > 1) {
-        sum = temp;
-        for (int i = 2; i <= number_of_terms; i++) {
-            if (i % 2 == 0) {
-                sum += power(x, multiplier) / factorial(multiplier);
-                multiplier += 2.0;
-            } else if (i % 1 == 0) {
-                sum -= power(x, multiplier) / factorial(multiplier);
-                multiplier += 2.0;
-            }
+    float sum = 1.0, multiplier = 2.0;
+    for (int i = 1; i <= number_of_terms; i++) {
+        if (i % 2 == 0) {
+            sum += power(x, multiplier) / factorial(multiplier);
+            multiplier += 2.0;
+        } else if (i % 2 != 0) {
+            sum -= power(x, multiplier) / factorial(multiplier);
+            multiplier += 2.0;
         }
     }
     return sum;
