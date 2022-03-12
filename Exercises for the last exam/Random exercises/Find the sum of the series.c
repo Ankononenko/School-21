@@ -12,12 +12,12 @@ value of x = 2.000000
 + 1. Take the input of x and number of terms
 + 2. Write factorial function
 + 2.1 Write pow function
-+ 2.3 Write function for counting the sum
+2.3 Write function for counting the sum
 + 2.5 Display the sum, number of term and value of x
-3. Work around invalid input
-4. Test
-5. Cpplint test
-6. Add and push
++ 3. Work around invalid input
++ 4. Test
++ 5. Cpplint test
++ 6. Add and push
 */
 
 #include <stdio.h>
@@ -34,9 +34,13 @@ void print_value_of_x(float x);
 int main() {
     float x = input_value_of_x();
     float number_of_terms = input_number_of_terms();
-    print_sum(count_sum(x, number_of_terms));
-    print_number_of_terms(number_of_terms);
-    print_value_of_x(x);
+    if (x > 0 && number_of_terms > 0) {
+        print_sum(count_sum(x, number_of_terms));
+        print_number_of_terms(number_of_terms);
+        print_value_of_x(x);
+    } else {
+        printf("n/a");
+    }
     return 0;
 }
 
@@ -76,15 +80,28 @@ float power(float number, float power) {
 
 float input_number_of_terms() {
     float number_of_terms;
+    char endline;
     printf("Input the number of terms:\n");
-    scanf("%f", &number_of_terms);
+    if (scanf("%f%c", &number_of_terms, &endline) == 2 && ((endline == ' ') || (endline == '\n'))) {
+        if (number_of_terms <= 0) {
+            number_of_terms = 0;
+        }
+    } else {
+        number_of_terms = 0;
+    }
     return number_of_terms;
 }
 
 float input_value_of_x() {
     float x;
     printf("Input the value of x:\n");
-    scanf("%f", &x);
+    if (scanf("%f", &x) == 1) {
+        if (x <= 0) {
+            x = 0;
+        }
+    } else {
+        x = 0;
+    }
     return x;
 }
 
