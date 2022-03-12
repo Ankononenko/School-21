@@ -32,8 +32,8 @@ void print_number_of_terms(float number_of_terms);
 void print_value_of_x(float x);
 
 int main() {
-    int x = input_value_of_x();
-    int number_of_terms = input_number_of_terms();
+    float x = input_value_of_x();
+    float number_of_terms = input_number_of_terms();
     print_sum(count_sum(x, number_of_terms));
     print_number_of_terms(number_of_terms);
     print_value_of_x(x);
@@ -41,11 +41,11 @@ int main() {
 }
 
 void print_value_of_x(float x) {
-    printf("Value of x = %f\n", (x * 1.0));
+    printf("Value of x = %f\n", x);
 }
 
 void print_number_of_terms(float number_of_terms) {
-    printf("Number of terms = %1lf\n", number_of_terms);
+    printf("Number of terms = %d\n", (int) number_of_terms);
 }
 
 void print_sum(float sum) {
@@ -54,22 +54,28 @@ void print_sum(float sum) {
 
 float count_sum(float x, float number_of_terms) {
     // [ 1-X^2/2!+X^4/4!- .........]
-    float sum = 0, temp, multiplier = 2;
-    temp = 1 - power(x, (2/factorial(2)));
+    float sum, temp, multiplier = 2.0;
+    temp = 1.0 - power(x, multiplier) / factorial(2);
     if (number_of_terms == 1) {
         sum = temp;
     } else if (number_of_terms > 1) {
-        for (int i = 1; i < number_of_terms; i++) {
-            temp += power(x, (multiplier/factorial(multiplier)));
-            multiplier += 2;
+        sum = temp;
+        for (int i = 2; i <= number_of_terms; i++) {
+            if (i % 2 == 0) {
+                sum += power(x, multiplier) / factorial(multiplier);
+                multiplier += 2.0;
+            } else if (i % 1 == 0) {
+                sum -= power(x, multiplier) / factorial(multiplier);
+                multiplier += 2.0;
+            }
         }
     }
     return sum;
 }
 
 float power(float number, float power) {
-    int result = number;
-    for (int i = 2; i <= power; i++) {
+    float result = number;
+    for (float i = 2; i <= power; i++) {
         result *= number;
     }
     return result;
@@ -90,8 +96,8 @@ float input_value_of_x() {
 }
 
 float factorial(float number) {
-    float result = 1;
-    for (int i = 1; i <= number; i++) {
+    float result = 1.0;
+    for (float i = 1; i <= number; i++) {
         result *= i;
     }
     return result;
