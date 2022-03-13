@@ -64,7 +64,7 @@ double count_sum(double x, double number_of_terms) {
         if (i % 2 == 0) {
             sum += power(x, multiplier) / factorial(multiplier);
             multiplier += 2.0;
-        } else if (i % 2 != 0) {
+        } else {
             sum -= power(x, multiplier) / factorial(multiplier);
             multiplier += 2.0;
         }
