@@ -18,23 +18,25 @@ value of x = 2.000000
 + 4. Test
 + 5. Cpplint test
 + 6. Add and push
++ 7. Switch from double to double to allow to input bigger numbers
++ 8. Change code to process negitive x as well
 */
 
 #include <stdio.h>
 
-float input_value_of_x();
-float input_number_of_terms();
-float factorial(float number);
-float power(float number, float power);
-float count_sum(float x, float number_of_terms);
-void print_sum(float sum);
-void print_number_of_terms(float number_of_terms);
-void print_value_of_x(float x);
+double input_value_of_x();
+double input_number_of_terms();
+double factorial(double number);
+double power(double number, double power);
+double count_sum(double x, double number_of_terms);
+void print_sum(double sum);
+void print_number_of_terms(double number_of_terms);
+void print_value_of_x(double x);
 
 int main() {
-    float x = input_value_of_x();
-    float number_of_terms = input_number_of_terms();
-    if (x > 0 && number_of_terms > 0) {
+    double x = input_value_of_x();
+    double number_of_terms = input_number_of_terms();
+    if (x != 0 && number_of_terms > 0) {
         print_sum(count_sum(x, number_of_terms));
         print_number_of_terms(number_of_terms);
         print_value_of_x(x);
@@ -44,20 +46,20 @@ int main() {
     return 0;
 }
 
-void print_value_of_x(float x) {
+void print_value_of_x(double x) {
     printf("Value of x = %f\n", x);
 }
 
-void print_number_of_terms(float number_of_terms) {
+void print_number_of_terms(double number_of_terms) {
     printf("Number of terms = %d\n", (int) number_of_terms);
 }
 
-void print_sum(float sum) {
+void print_sum(double sum) {
     printf("The sum = %f\n", sum);
 }
 
-float count_sum(float x, float number_of_terms) {
-    float sum = 1.0, multiplier = 2.0;
+double count_sum(double x, double number_of_terms) {
+    double sum = 1.0, multiplier = 2.0;
     for (int i = 1; i <= number_of_terms; i++) {
         if (i % 2 == 0) {
             sum += power(x, multiplier) / factorial(multiplier);
@@ -70,19 +72,19 @@ float count_sum(float x, float number_of_terms) {
     return sum;
 }
 
-float power(float number, float power) {
-    float result = number;
-    for (float i = 2; i <= power; i++) {
+double power(double number, double power) {
+    double result = number;
+    for (double i = 2; i <= power; i++) {
         result *= number;
     }
     return result;
 }
 
-float input_number_of_terms() {
-    float number_of_terms;
+double input_number_of_terms() {
+    double number_of_terms;
     char endline;
     printf("Input the number of terms:\n");
-    if (scanf("%f%c", &number_of_terms, &endline) == 2 && ((endline == ' ') || (endline == '\n'))) {
+    if (scanf("%lf%c", &number_of_terms, &endline) == 2 && ((endline == ' ') || (endline == '\n'))) {
         if (number_of_terms <= 0) {
             number_of_terms = 0;
         }
@@ -92,22 +94,19 @@ float input_number_of_terms() {
     return number_of_terms;
 }
 
-float input_value_of_x() {
-    float x;
+double input_value_of_x() {
+    double x;
     printf("Input the value of x:\n");
-    if (scanf("%f", &x) == 1) {
-        if (x <= 0) {
-            x = 0;
-        }
+    if (scanf("%lf", &x) == 1) {
     } else {
         x = 0;
     }
     return x;
 }
 
-float factorial(float number) {
-    float result = 1.0;
-    for (float i = 1; i <= number; i++) {
+double factorial(double number) {
+    double result = 1.0;
+    for (double i = 1; i <= number; i++) {
         result *= i;
     }
     return result;
