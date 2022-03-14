@@ -14,7 +14,7 @@ Write a program in C to print the Floyd's Triangle
 + 2.0 Invalid input
 + 2.5 Test
 + 3. Cpplint test
-4. Add and push
++ 4. Add and push
 */
 
 #include <stdio.h>
