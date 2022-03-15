@@ -1,113 +1,92 @@
 // Copyright 2022 finchren
-/* 
-Write a program in C to find the sum of the series [ 1-X^2/2!+X^4/4!- .........]. Go to the editor
+/*
+Write a program in C to display the sum of the series [ 1+x+x^2/2!+x^3/3!+....].
 Test Data :
-Input the Value of x :2
-Input the number of terms : 5
+Input the value of x :3
+Input number of terms : 5
 Expected Output :
-the sum = -0.415873
-Number of terms = 5
-value of x = 2.000000
+The sum is : 16.375000
 
-+ 1. Take the input of x and number of terms
-+ 2. Write factorial function
-+ 2.1 Write pow function
-2.3 Write function for counting the sum
-+ 2.5 Display the sum, number of term and value of x
-+ 3. Work around invalid input
-+ 4. Test
-+ 5. Cpplint test
-+ 6. Add and push
-+ 7. Switch from double to double to allow to input bigger numbers
-+ 8. Change code to process negitive x as well
++ 1. Take the input of x
++ 2. Take the input of the number of terms
++ 3.0 Factorial and pow functions
++ 3. Write a function to count the sum
++ 4. Output
+5. Invalid input
+6. Test
+7. Cpplint test
+8. Add and push
 */
 
 #include <stdio.h>
 
-double input_value_of_x();
-double input_number_of_terms();
-double factorial(double number);
-double power(double number, double power);
-double count_sum(double x, double number_of_terms);
-void print_sum(double sum);
-void print_number_of_terms(double number_of_terms);
-void print_value_of_x(double x);
+int input_x();
+int input_n_terms();
+int factorial(int number);
+int power(int number, int exponent);
+double count_sum(int x, int n_terms);
+void print_sum(double count_sum_result);
+void print_invalid();
 
 int main() {
-    double x = input_value_of_x();
-    double number_of_terms = input_number_of_terms();
-    if (x != 0 && number_of_terms > 0) {
-        print_sum(count_sum(x, number_of_terms));
-        print_number_of_terms(number_of_terms);
-        print_value_of_x(x);
+    int x = input_x();
+    int n_terms = input_n_terms();
+    if (x != 0 || n_terms > 0) {
+        double count_sum_result = count_sum(x, n_terms);
+        print_sum(count_sum_result);
     } else {
-        printf("n/a");
+        print_invalid();
     }
     return 0;
 }
 
-void print_value_of_x(double x) {
-    printf("Value of x = %f\n", x);
+void print_invalid() {
+    printf("n/a");
 }
 
-void print_number_of_terms(double number_of_terms) {
-    printf("Number of terms = %d\n", (int) number_of_terms);
+void print_sum(double count_sum_result) {
+    printf("The sum is: %lf", count_sum_result);
 }
 
-void print_sum(double sum) {
-    printf("The sum = %f\n", sum);
-}
-
-double count_sum(double x, double number_of_terms) {
-    double sum = 1.0, multiplier = 2.0;
-    for (int i = 1; i <= number_of_terms; i++) {
-        if (i % 2 == 0) {
-            sum += power(x, multiplier) / factorial(multiplier);
-            multiplier += 2.0;
-        } else {
-            sum -= power(x, multiplier) / factorial(multiplier);
-            multiplier += 2.0;
-        }
+double count_sum(int x, int n_terms) {
+    double result = 1 + x;
+    for (int i = 2; i < n_terms; i++) {
+        result += power(x, i) / (double) factorial(i);
     }
-    return sum;
+    return result;
 }
 
-double power(double number, double power) {
-    double result = number;
-    for (double i = 2; i <= power; i++) {
+int power(int number, int exponent) {
+    int result = number;
+    for (int i = 2; i <= exponent; i++) {
         result *= number;
     }
     return result;
 }
 
-double input_number_of_terms() {
-    double number_of_terms;
-    char endline;
-    printf("Input the number of terms:\n");
-    if (scanf("%lf%c", &number_of_terms, &endline) == 2 && ((endline == ' ') || (endline == '\n'))) {
-        if (number_of_terms <= 0) {
-            number_of_terms = 0;
-        }
-    } else {
-        number_of_terms = 0;
+int factorial(int number) {
+    int result = 1;
+    for (int i = 1; i <= number; i++) {
+        result *= i;
     }
-    return number_of_terms;
+    return result;
 }
 
-double input_value_of_x() {
-    double x;
+int input_x() {
+    int x;
     printf("Input the value of x:\n");
-    if (scanf("%lf", &x) == 1) {
-    } else {
+    if (!scanf("%d", &x)) {
         x = 0;
     }
     return x;
 }
 
-double factorial(double number) {
-    double result = 1.0;
-    for (double i = 1; i <= number; i++) {
-        result *= i;
+int input_n_terms() {
+    int n_terms;
+    char endline;
+    printf("Input number of terms:\n");
+    if (!scanf("%d%c", &n_terms, &endline) || n_terms < 1 || endline != '\n') {
+        n_terms = 0;
     }
-    return result;
+    return n_terms;
 }
