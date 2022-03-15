@@ -12,9 +12,9 @@ The sum is : 16.375000
 + 3.0 Factorial and pow functions
 + 3. Write a function to count the sum
 + 4. Output
-5. Invalid input
-6. Test
-7. Cpplint test
++ 5. Invalid input
++ 6. Test
++ 7. Cpplint test
 8. Add and push
 */
 
@@ -26,13 +26,26 @@ int factorial(int number);
 int power(int number, int exponent);
 double count_sum(int x, int n_terms);
 void print_sum(double count_sum_result);
+void print_invalid();
 
 int main() {
     int x = input_x();
-    int n_terms = input_n_terms();
-    double count_sum_result = count_sum(x, n_terms);
-    print_sum(count_sum_result);
+    if (x != 0) {
+        int n_terms = input_n_terms();
+        if (n_terms > 0) {
+            double count_sum_result = count_sum(x, n_terms);
+            print_sum(count_sum_result);
+        } else {
+        print_invalid();
+    }
+    } else {
+        print_invalid();
+    }
     return 0;
+}
+
+void print_invalid() {
+    printf("n/a");
 }
 
 void print_sum(double count_sum_result) {
@@ -64,18 +77,21 @@ int factorial(int number) {
 }
 
 int input_x() {
-    int *x;
+    int x;
+    char endline;
     printf("Input the value of x:\n");
-    while(!scanf("%d", x)) {
-            printf("n/a");
-            &x = NULL;
+    if (!scanf("%d%c", &x, &endline) || endline != '\n') {
+        x = 0;
     }
-    return *x;
+    return x;
 }
 
 int input_n_terms() {
     int n_terms;
+    char endline;
     printf("Input number of terms:\n");
-    scanf("%d", &n_terms);
+    if (!scanf("%d%c", &n_terms, &endline) || n_terms < 1 || endline != '\n') {
+        n_terms = 0;
+    }
     return n_terms;
 }
