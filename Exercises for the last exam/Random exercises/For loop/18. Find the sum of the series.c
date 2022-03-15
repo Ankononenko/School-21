@@ -12,10 +12,10 @@ The sum is : 16.375000
 + 3.0 Factorial and pow functions
 + 3. Write a function to count the sum
 + 4. Output
-5. Invalid input
-6. Test
-7. Cpplint test
-8. Add and push
++ 5. Invalid input
++ 6. Test
++ 7. Cpplint test
++ 8. Add and push
 */
 
 #include <stdio.h>
@@ -30,10 +30,14 @@ void print_invalid();
 
 int main() {
     int x = input_x();
-    int n_terms = input_n_terms();
-    if (x != 0 || n_terms > 0) {
-        double count_sum_result = count_sum(x, n_terms);
-        print_sum(count_sum_result);
+    if (x != 0) {
+        int n_terms = input_n_terms();
+        if (n_terms > 0) {
+            double count_sum_result = count_sum(x, n_terms);
+            print_sum(count_sum_result);
+        } else {
+        print_invalid();
+    }
     } else {
         print_invalid();
     }
@@ -74,8 +78,9 @@ int factorial(int number) {
 
 int input_x() {
     int x;
+    char endline;
     printf("Input the value of x:\n");
-    if (!scanf("%d", &x)) {
+    if (!scanf("%d%c", &x, &endline) || endline != '\n') {
         x = 0;
     }
     return x;
