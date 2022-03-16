@@ -18,7 +18,7 @@ The values of the series:
 + 4. Invalid input
 + 5. Test
 + 6. Cpplint test
-7. Add and push
++ 7. Add and push
 */
 
 #include <stdio.h>
