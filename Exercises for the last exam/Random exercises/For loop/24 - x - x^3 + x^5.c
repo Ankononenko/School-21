@@ -12,12 +12,12 @@ The values of the series:
 -128
 512
 
- 1. Take the input of the number of terms
- 2. Write a function to count the sum
-3. Output
-4. Invalid input
-5. Test
-6. Cpplint test
++ 1. Take the input of the number of terms
++ 2. Write a function to count the sum
++ 3. Output
++ 4. Invalid input
++ 5. Test
++ 6. Cpplint test
 7. Add and push
 */
 
@@ -26,8 +26,7 @@ The values of the series:
 int input_x();
 int input_n_terms();
 int power(int number, int exponent);
-int count_sum(int x, int n_terms);
-void print_sum(double count_sum_result);
+void print_result(int x, int n_terms);
 void print_invalid();
 
 int main() {
@@ -35,8 +34,7 @@ int main() {
     if (x != 0) {
         int n_terms = input_n_terms();
         if (n_terms > 0) {
-            double count_sum_result = count_sum(x, n_terms);
-            print_sum(count_sum_result);
+            print_result(x, n_terms);
         } else {
         print_invalid();
     }
@@ -50,17 +48,20 @@ void print_invalid() {
     printf("n/a");
 }
 
-void print_sum(double count_sum_result) {
-    printf("The sum is: %lf", count_sum_result);
-}
-
-int count_sum(int x, int n_terms) {
+void print_result(int x, int n_terms) {
     // x - x^3 + x^5 + ......
-    int result = x;
-    for (int i = 0; i <= n_terms; i++) {
-        x += power(x, i);
+    int result = x, counter = 3;
+    printf("The values of the series:\n%d", result);
+    for (int i = 2; i <= n_terms; i++) {
+        if (i % 2 == 0) {
+            result = power(x, counter) * -1;
+            printf("\n%d", result);
+        } else {
+            result = power(x, counter);
+            printf("\n%d", result);
+        }
+        counter += 2;
     }
-    return result;
 }
 
 int power(int number, int exponent) {
