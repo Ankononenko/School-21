@@ -77,10 +77,13 @@ The Sum of odd Natural Number upto 10 terms : 100
 
 The pattern like :
 
-*
-**
-***
-****
+\*
+
+\**
+
+\***
+
+\****
 
 
 10. Write a program in C to display the pattern like right angle triangle with a number.  
@@ -114,18 +117,19 @@ The pattern like :
 
 
 13. Write a program in C to make such a pattern like a pyramid with numbers increased by 1.  
+<pre>
    1 
   2 3 
  4 5 6 
 7 8 9 10 
-
+</pre>
 14. Write a program in C to make such a pattern like a pyramid with an asterisk.  
-
+<pre>
    * 
   * * 
  * * * 
 * * * *
-
+</pre>
 
 15. Write a C program to calculate the factorial of a given number.  
 Test Data :
@@ -143,12 +147,12 @@ The Sum of even Natural Number upto 5 terms : 30
 
 
 17. Write a program in C to make such a pattern like a pyramid with a number which will repeat the number in the same row.  
-
+<pre>
    1
   2 2
  3 3 3
 4 4 4 4
-
+</pre>
 
 18. Write a program in C to find the sum of the series [ 1-X^2/2!+X^4/4!- .........].  
 Test Data :
@@ -170,11 +174,11 @@ Sum of Series upto 5 terms : 2.283334
 
 
 20. Write a program in C to display the pattern like a pyramid using asterisk and each row contain an odd number of asterisks.  
-
+<pre>
    *
   ***
  *****
-
+</pre>
 
 21. Write a program in C to display the sum of the series [ 9 + 99 + 999 + 9999 ...].  
 Test Data :
@@ -264,7 +268,7 @@ Armstrong numbers in given range are: 1 153 370 371 407
 
 
 31. Write a program in C to display the pattern like a diamond.  
-
+<pre>
     *
    *** 
   *****
@@ -273,7 +277,8 @@ Armstrong numbers in given range are: 1 153 370 371 407
  *******
   *****
    ***
-    * 
+    *
+</pre>
 
 
 32. Write a C program to determine whether a given number is prime or not.  
@@ -287,13 +292,13 @@ Expected Output :
  Test Data :
 Input number of rows: 5
 Expected Output :
-
+<pre>
         1
       1   1 
     1   2   1 
   1   3   3   1
 1   4   6   4   1 
-
+</pre>
 34. Write a program in C to find the prime numbers within a range of numbers.  
 Test Data :
 Input starting number of range: 1
@@ -313,11 +318,11 @@ Here is the Fibonacci series upto to 10 terms :
 
 
 36. Write a program in C to display the such a pattern for n number of rows using a number which will start with the number 1 and the first and a last number of each row will be 1.  
-
+<pre>
   1
  121
 12321
-
+</pre>
 37. Write a program in C to display the number in reverse order.  
 Test Data :
 Input a number: 12345
@@ -340,12 +345,12 @@ The sum : 1683
 
 
 40. Write a C Program to display the pattern like pyramid using the alphabet.  
-
+<pre>
         A
       A B A 
     A B C B A
   A B C D C B A 
-
+</pre>
 
 41. Write a program in C to convert a decimal number into binary without using an array.  
 Test Data :
