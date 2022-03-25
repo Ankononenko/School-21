@@ -14,7 +14,7 @@ and a last number of each row will be 1
 + 4. Invalid input
 + 5. Test
 + 6. Cpplint test
-7. Add and push
++ 7. Add and push
 */
 
 #include <stdio.h>
