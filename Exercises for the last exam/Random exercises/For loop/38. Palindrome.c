@@ -10,10 +10,10 @@ Expected Output :
 + 2 Count the digits, so I know how many to iterate over
 + 2.5 Write pow function
 + 3. Write a function to check if palindrome
-4. Invalid input
-5. Test
-6. Cpplint test
-7. Add and push
++ 4. Invalid input
++ 5. Test
++ 6. Cpplint test
++ 7. Add and push
 */
 
 #include <stdio.h>
@@ -22,12 +22,21 @@ int input_number();
 int count_digits(int number);
 int power(int number, int exponent);
 void check_if_palindrome(int number, int how_many_digits);
+void print_invalid_input();
 
 int main() {
   int number = input_number();
-  int how_many_digits = count_digits(number);
-  check_if_palindrome(number, how_many_digits);
+  if (number > 0) {
+    int how_many_digits = count_digits(number);
+    check_if_palindrome(number, how_many_digits);
+  } else {
+    print_invalid_input();
+  }
   return 0;
+}
+
+void print_invalid_input() {
+  printf("n/a");
 }
 
 void check_if_palindrome(int number, int how_many_digits) {
@@ -71,7 +80,10 @@ int count_digits(int number) {
 
 int input_number() {
   int number;
+  char endline;
   printf("Input a number:\n");
-  scanf("%d", &number);
+  if (!scanf("%d%c", &number, &endline) || number < 0 || endline != '\n') {
+    number = 0;
+  }
   return number;
 }
