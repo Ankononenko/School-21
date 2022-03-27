@@ -9,7 +9,7 @@ The sum : 1683
 + 1. Write a function to count and output
 + 2. Test
 + 3. Cpplint test
-4. Add and push
++ 4. Add and push
 */
 
 #include <stdio.h>
