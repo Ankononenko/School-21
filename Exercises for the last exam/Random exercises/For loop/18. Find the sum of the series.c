@@ -1,6 +1,6 @@
 // Copyright 2022 finchren
 /* 
-Write a program in C to find the sum of the series [ 1-X^2/2!+X^4/4!- .........]. Go to the editor
+Write a program in C to find the sum of the series [ 1-X^2/2!+X^4/4!- .........]
 Test Data :
 Input the Value of x :2
 Input the number of terms : 5
@@ -17,95 +17,98 @@ value of x = 2.000000
 + 4. Test
 + 5. Cpplint test
 + 6. Add and push
-+ 7. Switch from double to double to allow to input bigger numbers
-+ 8. Change code to process negitive x as well
++ 7. Rework considering the Misha's comments
++ 8. Fix the error in the code
++ 9. Add and push fixed and reworked version
 */
 
 #include <stdio.h>
 
-double input_value_of_x();
-double input_number_of_terms();
-double factorial(double number);
-double power(double number, double power);
-double count_sum(double x, double number_of_terms);
+int input_value_of_x();
+int input_number_of_terms();
+int factorial(int number);
+int power(int base, int exponent);
+double count_sum(int x, int number_of_terms);
 void print_sum(double sum);
-void print_number_of_terms(double number_of_terms);
-void print_value_of_x(double x);
+void print_number_of_terms(int number_of_terms);
+void print_value_of_x(int x);
+void print_invalid_input();
 
 int main() {
-    double x = input_value_of_x();
-    double number_of_terms = input_number_of_terms();
-    if (x != 0 && number_of_terms > 0) {
-        print_sum(count_sum(x, number_of_terms));
-        print_number_of_terms(number_of_terms);
-        print_value_of_x(x);
+    int x = input_value_of_x();
+    if (x > 0) {
+        int number_of_terms = input_number_of_terms();
+        if (number_of_terms > 0) {
+            print_sum(count_sum(x, number_of_terms));
+            print_number_of_terms(number_of_terms);
+            print_value_of_x(x);
+        } else {
+        print_invalid_input();
+    }
     } else {
-        printf("n/a");
+        print_invalid_input();
     }
     return 0;
 }
 
-void print_value_of_x(double x) {
-    printf("Value of x = %f\n", x);
+void print_invalid_input() {
+    printf("n/a");
 }
 
-void print_number_of_terms(double number_of_terms) {
-    printf("Number of terms = %d\n", (int) number_of_terms);
+void print_value_of_x(int x) {
+    printf("Value of x = %f\n", (double)x);
+}
+
+void print_number_of_terms(int number_of_terms) {
+    printf("Number of terms = %d\n", number_of_terms);
 }
 
 void print_sum(double sum) {
     printf("The sum = %f\n", sum);
 }
 
-double count_sum(double x, double number_of_terms) {
-    double sum = 1.0, multiplier = 2.0;
-    for (int i = 1; i <= number_of_terms; i++) {
-        if (i % 2 == 0) {
-            sum += power(x, multiplier) / factorial(multiplier);
-            multiplier += 2.0;
-        } else {
-            sum -= power(x, multiplier) / factorial(multiplier);
-            multiplier += 2.0;
-        }
+double count_sum(int x, int number_of_terms) {
+    double sum = 1.0;
+    int multiplier = 2, sign = -1;
+    for (int i = 1; i < number_of_terms; ++i) {
+        sum += sign * power(x, multiplier) / (double)factorial(multiplier);
+        multiplier += 2;
+        sign *= (-1);
     }
     return sum;
 }
 
-double power(double number, double power) {
-    double result = number;
-    for (double i = 2; i <= power; i++) {
-        result *= number;
+int power(int base, int exponent) {
+    int result = base;
+    for (int i = 2; i <= exponent; ++i) {
+        result *= base;
     }
     return result;
 }
 
-double input_number_of_terms() {
-    double number_of_terms;
+int input_number_of_terms() {
+    int number_of_terms;
     char endline;
     printf("Input the number of terms:\n");
-    if (scanf("%lf%c", &number_of_terms, &endline) == 2 && ((endline == ' ') || (endline == '\n'))) {
-        if (number_of_terms <= 0) {
-            number_of_terms = 0;
-        }
-    } else {
+    if (!scanf("%d%c", &number_of_terms, &endline) || (endline != '\n') || (number_of_terms <= 0)) {
         number_of_terms = 0;
     }
     return number_of_terms;
 }
 
-double input_value_of_x() {
-    double x;
+int input_value_of_x() {
+    int x;
+    char endline;
     printf("Input the value of x:\n");
-    if (scanf("%lf", &x) == 1) {
-    } else {
+    if (!scanf("%d%c", &x, &endline) || endline != '\n') {
         x = 0;
     }
     return x;
 }
 
-double factorial(double number) {
-    double result = 1.0;
-    for (double i = 1; i <= number; i++) {
+int factorial(int number) {
+    int result = 1;
+    for (int i = 1; i <= number; ++i) {
         result *= i;
     }
     return result;
