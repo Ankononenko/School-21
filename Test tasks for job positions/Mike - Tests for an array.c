@@ -12,7 +12,7 @@
 + Decompose the code
 + 5. Write the test cases
 + 6. Cpplint test
-7. Add and push
++ 7. Add and push
 */
 
 #include <stdio.h>
