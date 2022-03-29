@@ -12,7 +12,7 @@
 + Decompose the code
 + 5. Write the test cases
 + 6. Cpplint test
-+ 7. Add and push
+7. Add and push
 */
 
 #include <stdio.h>
@@ -36,6 +36,21 @@ int main() {
     // Failed test from the call with Mike
     int array_5[9] = {70, 0, 0 , 5, 5, 7, 7, 0, 10};
     test(array_5, 700, 9, 5);
+    // Empty list test
+    int array_6[1] = {};
+    test(array_6, 0, 1, 6);
+    // One element list test
+    int array_7[1] = {1};
+    test(array_7, 1, 1, 7);
+    // Negative element list test 1
+    int array_8[5] = {-1, -2, -3, -4, -5};
+    test(array_8, 2, 5, 8);
+    // Negative element list test 2
+    int array_9[5] = {-1, -2, -3, 4, 5};
+    test(array_9, 20, 5, 9);
+    // Negative element list test 3
+    int array_10[5] = {1, 2, -3, 4, 5};
+    test(array_10, 20, 5, 10);
     return 0;
 }
 
@@ -72,6 +87,5 @@ int get_product(int array[], int array_size) {
             premax = array[j];
         }
     }
-    printf("max - %d, min - %d, premax - %d", max, min, premax);
     return (max * premax);
 }
