@@ -18,12 +18,12 @@ The LCM of 15 and 20 is : 60
     Ex: HCF of 15 and 20 is 5
     15 * 20 / 5 = 60
 + 3. Take input
-+ 4. Invalid input
++ 4. Invalid input - If one of the numbers is zero - we print out n/a, since division of integers by zero is undefined
 + 5.0 Write function to find HCF
 + 5.5 Find the LCM
 + 6. Output the found value
-7. Test
-8. Cpplint test
++ 7. Test
++ 8. Cpplint test
 9. Add and push
 */
 
@@ -60,10 +60,14 @@ int main() {
     }
     // Here go tests
     // int first, int second, int expected, int test_number
-    // First test - normal values
+    // Test - normal values
     test(4, 6, 12, 1);
-    // Second test - max values
+    // Test - max values
     test(2147483646, 1073741823, 2147483646, 2);
+    // Test - min values
+    test(-2147483646, -1073741823, 2147483646, 3);
+    // Test - ones
+    test(1, 1, 1, 4);
     return 0;
 }
 
@@ -86,7 +90,7 @@ void print_lcm(int first, int second, int lcm) {
 }
 
 int find_lcm(int first, int second, int hcf) {
-    int multiply_first_second = first * second;
+    long long int multiply_first_second = (long long int)first * (long long int)second;
     int lcm;
     if (multiply_first_second < 0) {
         multiply_first_second *= -1;
@@ -97,6 +101,12 @@ int find_lcm(int first, int second, int hcf) {
 
 int find_hcf(int first, int second) {
     int hcf;
+    if (first < 0) {
+        first *= -1;
+    }
+    if (second < 0) {
+        second *= -1;
+    }
     for (int i = first; i > 0; --i) {
         if (first % i == 0 && second % i == 0) {
             hcf = i;
@@ -114,7 +124,7 @@ double input_first() {
     double first;
     char endline;
     printf("Input 1st number for LCM:\n");
-    if (!scanf("%lf%c", &first, &endline) || endline != '\n') {
+    if (!scanf("%lf%c", &first, &endline) || endline != '\n' || first == 0) {
         // This is used to sort out the invalid input
         first = 0.666;
     }
@@ -125,7 +135,7 @@ double input_second() {
     double second;
     char endline;
     printf("Input 2nd number for LCM:\n");
-    if (!scanf("%lf%c", &second, &endline) || endline != '\n') {
+    if (!scanf("%lf%c", &second, &endline) || endline != '\n' || second == 0) {
         second = 0.666;
     }
     return second;
