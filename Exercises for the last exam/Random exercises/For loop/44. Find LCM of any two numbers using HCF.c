@@ -24,7 +24,7 @@ The LCM of 15 and 20 is : 60
 + 6. Output the found value
 + 7. Test
 + 8. Cpplint test
-9. Add and push
++ 9. Add and push
 */
 
 #include <stdio.h>
