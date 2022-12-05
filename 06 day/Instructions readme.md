@@ -1,4 +1,4 @@
-###To do:
+### To do:
 
 ***== Develop an src/pong.c program for a two-player game, 
 similar to Pong. To display the graphics, only use ASCII characters (with output 
